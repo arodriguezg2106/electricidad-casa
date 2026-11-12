@@ -1,0 +1,20 @@
+﻿CUADRO DE CARGAS Y CIRCUITOS DERIVADOS - PROYECTO VOLTHOME CDMX
+Normativa: NOM-001-SEDE-2012 Art. 210, 215, 220, 310
+Fecha de emision: 08/11/2026
+
+Circuito,Descripcion del Circuito,Fase,Tension (V),Carga (W),Carga (VA),Corriente (A),Interruptor,Conductor Fase/Neutro,Tierra EGC,Tuberia,Longitud (m),Caida % e,Proteccion GFCI
+C1,Alumbrado General y Espejo LED,L1,120,450,500,4.2,1P 15A QO,14 AWG Cu THW-2,14 AWG Cu Verde,1/2",22.0,1.48%,No
+C2,Contactos Generales Sala y Recamaras,L2,120,1600,1800,15.0,1P 20A QO,12 AWG Cu THW-2,12 AWG Cu Verde,3/4",24.0,2.15%,No
+C3,Cocina - Barra y Tarja (Enseres Pequenos),L1,120,1500,1500,12.5,1P 20A QO,12 AWG Cu THW-2,12 AWG Cu Verde,3/4",12.0,0.90%,OBLIGATORIA
+C4,Cocina - Refrigerador y Horno Microondas,L2,120,1600,1700,14.1,1P 20A QO,12 AWG Cu THW-2,12 AWG Cu Verde,3/4",14.0,1.18%,OBLIGATORIA
+C5,Banos 1 y 2 - Contactos Lavabo y Espejo,L1,120,1500,1500,12.5,1P 20A QO,12 AWG Cu THW-2,12 AWG Cu Verde,3/4",10.0,0.75%,OBLIGATORIA
+C6,Reserva / Futuro Cuarto de Lavado,L2,120,1400,1500,12.5,1P 20A QO,12 AWG Cu THW-2,12 AWG Cu Verde,3/4",18.0,1.35%,OBLIGATORIA
+
+RESUMEN DE POTENCIA Y DEMANDA:
+Carga Total Instalada:,8050 W / 8500 VA
+Demanda Maxima Diversificada (Art. 220):,5454 VA (5.45 kVA)
+Corriente del Alimentador (240V 2F-3H):,25.2 A
+Corriente de Diseno (125% continuo):,31.6 A
+Conductor Alimentador Seleccionado:,Calibre 8 AWG Cu THW-2-LS 90C (Ampacidad 50A @ 75C)
+Interruptor Principal en Fachada:,2x40A Square D QO
+Caida de Tension en Alimentador (16m):,0.78% (Cumple holgadamente <= 3.0%)

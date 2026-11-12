@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Python cache & temp
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Scratch & temporary inspection files
+check_media.py
+crop_inspect.py
+inspect_structure.py
+crop_*.jpg
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Vite cache
+.vite/

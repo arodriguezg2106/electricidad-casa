@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="950" viewBox="0 0 1150 950">
+<style>
+text { font-family: Arial, sans-serif; }
+.wall { fill: none; stroke: #1e293b; stroke-width: 3.5; }
+.grid { stroke: #f1f5f9; stroke-width: 1; }
+.dim { fill: #475569; font-size: 11px; font-family: monospace; }
+</style>
+<rect width="100%" height="90%" fill="#ffffff" />
+<g transform="translate(40, 40)">
+<text x="0" y="0" font-size="20" font-weight="bold" fill="#0f172a">PLANO ARQUITECTÓNICO PRELIMINAR - PLANTA ALTA</text>
+<text x="0" y="20" font-size="12" fill="#64748b">Proyecto: Instalación Eléctrica Independiente | Ubicación: CDMX | Escala gráfica 1:50</text>
+</g>
+<g transform="translate(260, 120)">
+<rect x="0.0" y="0.0" width="434.0" height="280.0" fill="#e0f2fe" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="10.0" y="22.0" font-size="13" font-weight="bold" fill="#0f172a">Sala y Comedor</text>
+<text x="10.0" y="38.0" class="dim">6.20m × 4.00m (24.8 m²)</text>
+<rect x="339.0" y="8.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="383.0" y="21.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="434.0" y="0.0" width="224.0" height="196.0" fill="#fef3c7" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="444.0" y="22.0" font-size="13" font-weight="bold" fill="#0f172a">Cocina</text>
+<text x="444.0" y="38.0" class="dim">3.20m × 2.80m (9.0 m²)</text>
+<rect x="563.0" y="8.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="607.0" y="21.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="424.0" y="10.0" width="20" height="140.0" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5" />
+<text x="434.0" y="70.0" font-size="9" font-weight="bold" fill="#c2410c" text-anchor="middle" transform="rotate(-90, 434.0, 70.0)">BARRA (2.0 m)</text>
+<rect x="0.0" y="280.0" width="434.0" height="84.0" fill="#f3f4f6" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="10.0" y="302.0" font-size="13" font-weight="bold" fill="#0f172a">Pasillo Distribuidor</text>
+<text x="10.0" y="318.0" class="dim">6.20m × 1.20m (7.4 m²)</text>
+<rect x="339.0" y="288.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="383.0" y="301.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="434.0" y="196.0" width="224.0" height="168.0" fill="#ede9fe" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="444.0" y="218.0" font-size="13" font-weight="bold" fill="#0f172a">Cubo de Escaleras</text>
+<text x="444.0" y="234.0" class="dim">3.20m × 2.40m (7.7 m²)</text>
+<rect x="563.0" y="204.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="607.0" y="217.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<line x1="449.0" y1="212.8" x2="643.0" y2="212.8" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="229.6" x2="643.0" y2="229.6" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="246.4" x2="643.0" y2="246.4" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="263.2" x2="643.0" y2="263.2" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="280.0" x2="643.0" y2="280.0" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="296.8" x2="643.0" y2="296.8" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="313.6" x2="643.0" y2="313.6" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="330.4" x2="643.0" y2="330.4" stroke="#94a3b8" stroke-width="1.2" />
+<line x1="449.0" y1="347.20000000000005" x2="643.0" y2="347.20000000000005" stroke="#94a3b8" stroke-width="1.2" />
+<text x="546.0" y="280.0" font-size="10" font-weight="bold" fill="#6366f1" text-anchor="middle">HUECO ESCALERA A PB / AZOTEA</text>
+<rect x="0.0" y="364.0" width="154.0" height="112.0" fill="#f1f5f9" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="10.0" y="386.0" font-size="13" font-weight="bold" fill="#0f172a">Baño 1 (General)</text>
+<text x="10.0" y="402.0" class="dim">2.20m × 1.60m (3.5 m²)</text>
+<rect x="59.0" y="372.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="103.0" y="385.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="154.0" y="364.0" width="168.0" height="112.0" fill="#f1f5f9" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="164.0" y="386.0" font-size="13" font-weight="bold" fill="#0f172a">Baño 2 (Suite)</text>
+<text x="164.0" y="402.0" class="dim">2.40m × 1.60m (3.8 m²)</text>
+<rect x="227.0" y="372.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="271.0" y="385.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="0.0" y="476.0" width="322.0" height="252.0" fill="#e0e7ff" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="10.0" y="498.0" font-size="13" font-weight="bold" fill="#0f172a">Recámara 1 (Posterior)</text>
+<text x="10.0" y="514.0" class="dim">4.60m × 3.60m (16.6 m²)</text>
+<rect x="227.0" y="484.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="271.0" y="497.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="322.0" y="364.0" width="336.0" height="364.0" fill="#e0e7ff" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="332.0" y="386.0" font-size="13" font-weight="bold" fill="#0f172a">Recámara 2 (Estudio / Almacén)</text>
+<text x="332.0" y="402.0" class="dim">4.80m × 5.20m (25.0 m²)</text>
+<rect x="563.0" y="372.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="607.0" y="385.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<rect x="-182.0" y="0.0" width="154.0" height="245.0" fill="#fee2e2" fill-opacity="0.3" stroke="#334155" stroke-width="2.5" stroke-dasharray="6,4" />
+<text x="-172.0" y="22.0" font-size="13" font-weight="bold" fill="#0f172a">Fachada PB (Nivel Calle)</text>
+<text x="-172.0" y="38.0" class="dim">2.20m × 3.50m (7.7 m²)</text>
+<rect x="-123.0" y="8.0" width="88" height="18" rx="4" fill="#fef3c7" stroke="#fde68a" />
+<text x="-79.0" y="21.0" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">PROVISIONAL</text>
+<g transform="translate(0, 780)">
+<rect x="0" y="0" width="70" height="6" fill="#0f172a" />
+<rect x="70" y="0" width="70" height="6" fill="#e2e8f0" stroke="#0f172a" stroke-width="1" />
+<text x="0" y="20" font-size="10" font-weight="bold" fill="#0f172a">0.0 m</text>
+<text x="70" y="20" font-size="10" font-weight="bold" fill="#0f172a">1.0 m</text>
+<text x="140" y="20" font-size="10" font-weight="bold" fill="#0f172a">2.0 m</text>
+<text x="0" y="-8" font-size="11" font-weight="bold" fill="#475569">ESCALA MÉTRICA GRÁFICA (1 m = 70 px)</text>
+</g>
+</g>
+</svg>

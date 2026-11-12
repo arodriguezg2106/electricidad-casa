@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="950" viewBox="0 0 1150 950">
+<style>
+text { font-family: Arial, sans-serif; }
+.dim { fill: #475569; font-size: 11px; font-family: monospace; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<g transform="translate(40, 40)">
+<text x="0" y="0" font-size="20" font-weight="bold" fill="#0f172a">PLANO ELÉCTRICO PRELIMINAR - DISTRIBUCIÓN Y CIRCUITOS</text>
+<text x="0" y="20" font-size="12" fill="#64748b">NOM-001-SEDE-2012 / CFE 120/240V 2F-3H | Simbología Normalizada</text>
+</g>
+<g transform="translate(260, 120)">
+<rect x="0.0" y="0.0" width="434.0" height="280.0" fill="#e0f2fe" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="8.0" y="18.0" font-size="11" font-weight="bold" fill="#475569">Sala y Comedor</text>
+<rect x="434.0" y="0.0" width="224.0" height="196.0" fill="#fef3c7" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="442.0" y="18.0" font-size="11" font-weight="bold" fill="#475569">Cocina</text>
+<rect x="0.0" y="280.0" width="434.0" height="84.0" fill="#f3f4f6" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="8.0" y="298.0" font-size="11" font-weight="bold" fill="#475569">Pasillo Distribuidor</text>
+<rect x="434.0" y="196.0" width="224.0" height="168.0" fill="#ede9fe" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="442.0" y="214.0" font-size="11" font-weight="bold" fill="#475569">Cubo de Escaleras</text>
+<rect x="0.0" y="364.0" width="154.0" height="112.0" fill="#f1f5f9" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="8.0" y="382.0" font-size="11" font-weight="bold" fill="#475569">Baño 1 (General)</text>
+<rect x="154.0" y="364.0" width="168.0" height="112.0" fill="#f1f5f9" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="162.0" y="382.0" font-size="11" font-weight="bold" fill="#475569">Baño 2 (Suite)</text>
+<rect x="0.0" y="476.0" width="322.0" height="252.0" fill="#e0e7ff" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="8.0" y="494.0" font-size="11" font-weight="bold" fill="#475569">Recámara 1 (Posterior)</text>
+<rect x="322.0" y="364.0" width="336.0" height="364.0" fill="#e0e7ff" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="330.0" y="382.0" font-size="11" font-weight="bold" fill="#475569">Recámara 2 (Estudio / Almacén)</text>
+<rect x="-182.0" y="0.0" width="154.0" height="245.0" fill="#fee2e2" fill-opacity="0.2" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="4,2" />
+<text x="-174.0" y="18.0" font-size="11" font-weight="bold" fill="#475569">Fachada PB (Nivel Calle)</text>
+<line x1="-105.0" y1="168.0" x2="406.0" y2="294.0" stroke="#dc2626" stroke-width="3.5"  />
+<text x="150.5" y="227.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#dc2626" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">Alimentador 1" (2#8+1#8N+1#8T)</text>
+<line x1="406.0" y1="294.0" x2="315.0" y2="140.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="360.5" y="213.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="315.0" y1="140.0" x2="126.0" y2="140.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="220.5" y="136.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="315.0" y1="140.0" x2="546.0" y2="98.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="430.5" y="115.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="406.0" y1="294.0" x2="336.0" y2="322.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="371.0" y="304.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="140.0" y1="322.0" x2="77.0" y2="420.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="108.5" y="367.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="336.0" y1="322.0" x2="238.0" y2="420.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="287.0" y="367.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="140.0" y1="322.0" x2="161.0" y2="595.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="150.5" y="454.5" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="336.0" y1="322.0" x2="490.0" y2="546.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="5,3" />
+<text x="413.0" y="430.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">1/2" (C1)</text>
+<line x1="406.0" y1="294.0" x2="84.0" y2="273.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="245.0" y="279.5" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C2)</text>
+<line x1="84.0" y1="273.0" x2="14.0" y2="595.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="49.0" y="430.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C2)</text>
+<line x1="161.0" y1="721.0" x2="651.0" y2="560.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="406.0" y="636.5" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C2)</text>
+<line x1="406.0" y1="294.0" x2="448.0" y2="154.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="427.0" y="220.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C3)</text>
+<line x1="448.0" y1="154.0" x2="644.0" y2="98.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="546.0" y="122.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C3)</text>
+<line x1="406.0" y1="294.0" x2="448.0" y2="21.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="427.0" y="153.5" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C4)</text>
+<line x1="406.0" y1="294.0" x2="238.0" y2="378.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="322.0" y="332.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C5)</text>
+<line x1="238.0" y1="378.0" x2="98.0" y2="378.0" stroke="#64748b" stroke-width="1.8"  />
+<text x="168.0" y="374.0" font-size="8.5" font-family="monospace" font-weight="bold" fill="#64748b" text-anchor="middle" stroke="#ffffff" stroke-width="2.5" paint-order="stroke">3/4" (C5)</text>
+<g transform="translate(-105.0, 35.0)">
+<polygon points="0,-12 10,6 -10,6" fill="#f59e0b" stroke="#78350f" stroke-width="1.5" />
+<text x="0" y="17" font-size="8" font-weight="bold" fill="#b45309" text-anchor="middle">MUFA 1 1/4"</text>
+</g>
+<g transform="translate(-105.0, 126.0)">
+<circle r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5" />
+<text x="0" y="4" font-size="10" font-weight="bold" fill="#dc2626" text-anchor="middle">M₂</text>
+<text x="0" y="26" font-size="9" font-weight="bold" fill="#dc2626" text-anchor="middle">MEDIDOR 2 CFE</text>
+</g>
+<g transform="translate(-140.0, 196.0)">
+<circle r="6" fill="#16a34a" stroke="#14532d" stroke-width="1.5" />
+<line x1="0" y1="6" x2="0" y2="16" stroke="#16a34a" stroke-width="2" />
+<line x1="-6" y1="12" x2="6" y2="12" stroke="#16a34a" stroke-width="1.5" />
+<line x1="-4" y1="15" x2="4" y2="15" stroke="#16a34a" stroke-width="1.2" />
+<line x1="-2" y1="18" x2="2" y2="18" stroke="#16a34a" stroke-width="1.0" />
+<text x="0" y="28" font-size="8" font-weight="bold" fill="#15803d" text-anchor="middle">VARILLA TIERRA</text>
+</g>
+<g transform="translate(406.0, 294.0)">
+<rect x="-14" y="-14" width="28" height="28" fill="#0f172a" stroke="#38bdf8" stroke-width="2" rx="3" />
+<line x1="-14" y1="-14" x2="14" y2="14" stroke="#ffffff" stroke-width="1.5" />
+<text x="0" y="25" font-size="9" font-weight="bold" fill="#0f172a" text-anchor="middle">CENTRO DE CARGA (QO-8)</text>
+</g>
+<g transform="translate(126.0, 140.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Sala</text>
+</g>
+<g transform="translate(315.0, 140.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Comedor</text>
+</g>
+<g transform="translate(546.0, 98.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Cocina</text>
+</g>
+<g transform="translate(140.0, 322.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Pasillo 1</text>
+</g>
+<g transform="translate(336.0, 322.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Pasillo 2</text>
+</g>
+<g transform="translate(77.0, 420.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Baño 1</text>
+</g>
+<g transform="translate(238.0, 420.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Baño 2</text>
+</g>
+<g transform="translate(161.0, 595.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Recámara 1</text>
+</g>
+<g transform="translate(490.0, 546.0)">
+<circle r="10" fill="#ffffff" stroke="#eab308" stroke-width="2" />
+<line x1="-7" y1="-7" x2="7" y2="7" stroke="#eab308" stroke-width="1.8" />
+<line x1="-7" y1="7" x2="7" y2="-7" stroke="#eab308" stroke-width="1.8" />
+<text x="0" y="20" font-size="8" font-weight="bold" fill="#854d0e" text-anchor="middle">Luz Recámara 2</text>
+</g>
+<g transform="translate(420.0, 266.0)">
+<circle r="7" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+<text x="0" y="3" font-size="9" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+</g>
+<g transform="translate(448.0, 182.0)">
+<circle r="7" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+<text x="0" y="3" font-size="9" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+</g>
+<g transform="translate(14.0, 378.0)">
+<circle r="7" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+<text x="0" y="3" font-size="9" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+</g>
+<g transform="translate(168.0, 378.0)">
+<circle r="7" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+<text x="0" y="3" font-size="9" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+</g>
+<g transform="translate(14.0, 490.0)">
+<circle r="7" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+<text x="0" y="3" font-size="9" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+</g>
+<g transform="translate(336.0, 378.0)">
+<circle r="7" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+<text x="0" y="3" font-size="9" font-weight="bold" fill="#334155" text-anchor="middle">S</text>
+</g>
+<g transform="translate(84.0, 273.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Sala TV</text>
+</g>
+<g transform="translate(21.0, 105.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Sala Vent</text>
+</g>
+<g transform="translate(336.0, 14.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Comedor</text>
+</g>
+<g transform="translate(14.0, 595.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Rec 1 Izq</text>
+</g>
+<g transform="translate(161.0, 721.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Rec 1 Fondo</text>
+</g>
+<g transform="translate(651.0, 560.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Rec 2 Muro</text>
+</g>
+<g transform="translate(448.0, 154.0)">
+<circle r="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+<path d="M -9 0 A 9 9 0 0 0 9 0 Z" fill="#dc2626" />
+<text x="0" y="-11" font-size="8" font-weight="bold" fill="#dc2626" text-anchor="middle">GFCI</text>
+<text x="0" y="20" font-size="7.5" font-weight="bold" fill="#991b1b" text-anchor="middle">GFCI Barra Cocina</text>
+</g>
+<g transform="translate(644.0, 98.0)">
+<circle r="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+<path d="M -9 0 A 9 9 0 0 0 9 0 Z" fill="#dc2626" />
+<text x="0" y="-11" font-size="8" font-weight="bold" fill="#dc2626" text-anchor="middle">GFCI</text>
+<text x="0" y="20" font-size="7.5" font-weight="bold" fill="#991b1b" text-anchor="middle">GFCI Tarja Cocina</text>
+</g>
+<g transform="translate(448.0, 21.0)">
+<circle r="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" />
+<path d="M -8 0 A 8 8 0 0 0 8 0 Z" fill="#3b82f6" />
+<text x="0" y="19" font-size="7.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Contacto Refrigerador</text>
+</g>
+<g transform="translate(574.0, 14.0)">
+<circle r="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+<path d="M -9 0 A 9 9 0 0 0 9 0 Z" fill="#dc2626" />
+<text x="0" y="-11" font-size="8" font-weight="bold" fill="#dc2626" text-anchor="middle">GFCI</text>
+<text x="0" y="20" font-size="7.5" font-weight="bold" fill="#991b1b" text-anchor="middle">GFCI Microondas</text>
+</g>
+<g transform="translate(98.0, 378.0)">
+<circle r="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+<path d="M -9 0 A 9 9 0 0 0 9 0 Z" fill="#dc2626" />
+<text x="0" y="-11" font-size="8" font-weight="bold" fill="#dc2626" text-anchor="middle">GFCI</text>
+<text x="0" y="20" font-size="7.5" font-weight="bold" fill="#991b1b" text-anchor="middle">GFCI Baño 1 Lavabo</text>
+</g>
+<g transform="translate(238.0, 378.0)">
+<circle r="9" fill="#fee2e2" stroke="#dc2626" stroke-width="2" />
+<path d="M -9 0 A 9 9 0 0 0 9 0 Z" fill="#dc2626" />
+<text x="0" y="-11" font-size="8" font-weight="bold" fill="#dc2626" text-anchor="middle">GFCI</text>
+<text x="0" y="20" font-size="7.5" font-weight="bold" fill="#991b1b" text-anchor="middle">GFCI Baño 2 Espejo</text>
+</g>
+<g transform="translate(-200, 480)">
+<rect width="210" height="280" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+<text x="12" y="24" font-size="11" font-weight="bold" fill="#0f172a">SIMBOLOGÍA ELÉCTRICA</text>
+<circle cx="22" cy="46" r="5" fill="#eab308" />
+<text x="36" y="50" font-size="9" font-weight="bold" fill="#334155">Luminaria Techo (C1)</text>
+<circle cx="22" cy="74" r="5" fill="#3b82f6" />
+<text x="36" y="78" font-size="9" font-weight="bold" fill="#334155">Contacto Dúplex 120V (C2)</text>
+<circle cx="22" cy="102" r="5" fill="#dc2626" />
+<text x="36" y="106" font-size="9" font-weight="bold" fill="#334155">Contacto GFCI 20A (C3/C5)</text>
+<circle cx="22" cy="130" r="5" fill="#334155" />
+<text x="36" y="134" font-size="9" font-weight="bold" fill="#334155">Apagador Sencillo (S)</text>
+<circle cx="22" cy="158" r="5" fill="#0f172a" />
+<text x="36" y="162" font-size="9" font-weight="bold" fill="#334155">Centro de Carga QO-8</text>
+<circle cx="22" cy="186" r="5" fill="#dc2626" />
+<text x="36" y="190" font-size="9" font-weight="bold" fill="#334155">Segundo Medidor CFE</text>
+<circle cx="22" cy="214" r="5" fill="#16a34a" />
+<text x="36" y="218" font-size="9" font-weight="bold" fill="#334155">Varilla Tierra Copperweld</text>
+<circle cx="22" cy="242" r="5" fill="#dc2626" />
+<text x="36" y="246" font-size="9" font-weight="bold" fill="#334155">Alimentador Principal 1"</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,48 @@
+﻿SISTEMA DE MODELADO Y CÁLCULO ELÉCTRICO RESIDENCIAL - PRESUPUESTO VOLTHOME CDMX
+Fecha de generación: 08/11/2026
+Normativa: NOM-001-SEDE-2012 / CFE Baja Tensión Residencial
+Moneda: Pesos Mexicanos (MXN)
+
+RESUMEN EJECUTIVO POR ESCENARIOS (MXN)
+Rubro,Escenario Económico Seguro,Escenario Intermedio (Recomendado),Escenario Mayor Calidad
+Materiales Eléctricos Certificados,13720.00,18500.00,25825.00
+Mano de Obra Calificada (Electricista NOM),8500.00,9775.00,11050.00
+Obra Civil (Ranurados / Resanes / Sellos),4200.00,4200.00,5040.00
+Gestión y Preparación Acometida CFE,1800.00,1800.00,1800.00
+TOTAL ESTIMADO DE OBRA,28220.00,34275.00,43715.00
+
+EVALUACIÓN DE PROMOCIONES EL BUEN FIN 2026 (ESCENARIO RECOMENDADO):
+Precio Regular de Materiales:,$18500.00 MXN
+Descuento Directo Estimado en Tienda (15%):,-$2775.00 MXN
+Bonificación Bancaria / Cashback (5%):,-$786.25 MXN
+AHORRO REAL TOTAL ESTIMADO EN MATERIALES:,$3561.25 MXN (19.2% de Ahorro Neto)
+IMPORTE NETO A PAGAR EN MATERIALES BUEN FIN:,$14938.75 MXN
+
+CATÁLOGO DETALLADO Y CUANTIFICADO DE MATERIALES
+Clave,Categoría,Descripción Técnica,Unidad,Cantidad,P.U. Eco,Importe Eco,P.U. Medio,Importe Medio,P.U. Alto,Importe Alto,Proveedor Referencia,Estado Validación
+CND-12-BK,Conductores,"Conductor cobre Calibre 12 AWG THW-2-LS 90C Negro (Fase)",m,80,14.50,1160.00,18.20,1456.00,23.50,1880.00,"Condumex / Casa Eléctrica",CONFIRMADO
+CND-12-WH,Conductores,"Conductor cobre Calibre 12 AWG THW-2-LS 90C Blanco (Neutro)",m,80,14.50,1160.00,18.20,1456.00,23.50,1880.00,"Condumex / Casa Eléctrica",CONFIRMADO
+CND-12-GN,Conductores,"Conductor cobre Calibre 12 AWG THW-2-LS 90C Verde (Tierra)",m,80,14.50,1160.00,18.20,1456.00,23.50,1880.00,"Condumex / Casa Eléctrica",CONFIRMADO
+CND-14-BK,Conductores,"Conductor cobre Calibre 14 AWG THW-2-LS 90C Negro (Alumbrado)",m,45,9.80,441.00,12.50,562.50,16.00,720.00,"Condumex",CONFIRMADO
+CND-14-WH,Conductores,"Conductor cobre Calibre 14 AWG THW-2-LS 90C Blanco (Neutro Alumbrado)",m,45,9.80,441.00,12.50,562.50,16.00,720.00,"Condumex",CONFIRMADO
+CND-14-RD,Conductores,"Conductor cobre Calibre 14 AWG THW-2-LS 90C Rojo (Retornos / 3V)",m,35,9.80,343.00,12.50,437.50,16.00,560.00,"Condumex",CONFIRMADO
+CND-08-FDR,Conductores,"Conductor cobre Calibre 8 AWG THW-2-LS 90C (Alimentador 4 hilos)",m,64,34.00,2176.00,42.50,2720.00,54.00,3456.00,"Condumex / Viakon",PENDIENTE_VALIDACION_CFE
+CAN-EMT-34,Canalizaciones,"Tubo conduit metálico EMT / PVC pesado 3/4"" (tramo 3m)",tramo,14,85.00,1190.00,110.00,1540.00,145.00,2030.00,"Rymco EMT / Ferretería",CONFIRMADO
+CAN-EMT-100,Canalizaciones,"Tubo conduit metálico galvanizado 1"" para alimentador",tramo,6,145.00,870.00,185.00,1110.00,240.00,1440.00,"Rymco",CONFIRMADO
+CJ-CHAL-24,Cajas y Accesorios,"Caja metálica rectangular chalupa 2x4x1 1/2"" galvanizada",pza,22,14.00,308.00,19.50,429.00,26.00,572.00,"Bticino / Volteck",CONFIRMADO
+CJ-OCT-4,Cajas y Accesorios,"Caja metálica octagonal 4x1 1/2"" galvanizada losa",pza,9,16.50,148.50,22.00,198.00,31.00,279.00,"Rymco",CONFIRMADO
+CON-EMT-34,Cajas y Accesorios,"Conector recto con opresor para conduit 3/4""",pza,32,9.50,304.00,14.00,448.00,21.00,672.00,"Rawelt / Appleton",CONFIRMADO
+TAB-QO-8,Protecciones y Tableros,"Centro de Carga Square D QO 8 polos empotrar NEMA 1",pza,1,580.00,580.00,820.00,820.00,1250.00,1250.00,"Square D Schneider",CONFIRMADO
+INT-QO-115,Protecciones y Tableros,"Interruptor termomagnético 1P 15A 10kA QO Square D",pza,1,120.00,120.00,165.00,165.00,230.00,230.00,"Square D Schneider",CONFIRMADO
+INT-QO-120,Protecciones y Tableros,"Interruptor termomagnético 1P 20A 10kA QO Square D",pza,5,125.00,625.00,170.00,850.00,235.00,1175.00,"Square D Schneider",CONFIRMADO
+INT-QO-240,Protecciones y Tableros,"Interruptor principal 2P 40A para desconectador en fachada",pza,1,310.00,310.00,420.00,420.00,580.00,580.00,"Square D Schneider",PENDIENTE_VALIDACION_CFE
+DIS-GFCI-20,Dispositivos,"Receptáculo dúplex GFCI 20A 125V autoprueba con placa",pza,4,195.00,780.00,285.00,1140.00,420.00,1680.00,"Leviton Smartlock / Bticino",CONFIRMADO
+DIS-DUP-15,Dispositivos,"Contacto dúplex polarizado y aterrizado 15A con placa",pza,12,42.00,504.00,68.00,816.00,115.00,1380.00,"Bticino Quinziño MX",CONFIRMADO
+DIS-SW-1,Dispositivos,"Apagador sencillo 1 módulo con placa",pza,6,38.00,228.00,58.00,348.00,98.00,588.00,"Bticino Quinziño MX",CONFIRMADO
+DIS-SW-3W,Dispositivos,"Apagador 3 vías (escalera/conmutador) con placa",pza,2,48.00,96.00,76.00,152.00,125.00,250.00,"Bticino Quinziño MX",CONFIRMADO
+LUM-LED-12W,Dispositivos,"Luminaria sobreponer LED 12W 120V 3000K-4000K",pza,8,85.00,680.00,145.00,1160.00,260.00,2080.00,"TecnoLite / Philips",CONFIRMADO
+CFE-BASE-5T,Acometida y Puesta a Tierra,"Base watthorímetro 5 terminales 100A 120/240V cuadrada",pza,1,380.00,380.00,485.00,485.00,650.00,650.00,"Square D / IUSA",PENDIENTE_VALIDACION_CFE
+CFE-MUFA-114,Acometida y Puesta a Tierra,"Mufa aérea aluminio 1 1/4"" con tubo galvanizado 3m",jgo,1,420.00,420.00,560.00,560.00,750.00,750.00,"Rymco / Crouse-Hinds",PENDIENTE_VALIDACION_CFE
+TR-VAR-58,Acometida y Puesta a Tierra,"Varilla de tierra Copperweld 5/8"" x 3.0 m NMX-ANCE",pza,1,340.00,340.00,440.00,440.00,590.00,590.00,"Total Ground / IUSA",CONFIRMADO
+TR-CON-58,Acometida y Puesta a Tierra,"Conector mecánico bronce para varilla 5/8"" a cal. 8",pza,1,45.00,45.00,65.00,65.00,95.00,95.00,"Burndy / IUSA",CONFIRMADO
+TR-CND-8D,Acometida y Puesta a Tierra,"Conductor cobre suave desnudo Calibre 8 AWG",m,8,32.00,256.00,41.00,328.00,52.00,416.00,"Condumex / Viakon",CONFIRMADO
