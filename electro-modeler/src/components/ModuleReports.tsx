@@ -8,6 +8,7 @@ import {
   HelpCircle,
   AlertTriangle,
   ShieldCheck,
+  ShieldAlert,
   Zap,
   Building,
   Layers,
@@ -17,6 +18,13 @@ import {
 import type { ProjectData } from '../types.ts';
 import { calculateResidentialDemand, calculateVoltageDrop } from '../utils/calcEngine.ts';
 import { surveyElementsData } from '../data/surveyData.ts';
+import { 
+  VALIDATED_ZONES, 
+  STREET_ACCESS, 
+  PARTIAL_MEASUREMENTS, 
+  INSTALLATION_REAL_STATUS, 
+  PRIORITY_QUESTIONS 
+} from '../data/validatedTopology.ts';
 
 interface ModuleReportsProps {
   project: ProjectData;
@@ -24,7 +32,7 @@ interface ModuleReportsProps {
 }
 
 export const ModuleReports: React.FC<ModuleReportsProps> = ({ project, onSaveProject }) => {
-  const [activeReportSection, setActiveReportSection] = useState<'survey' | 'memoria' | 'plan' | 'checklist' | 'manual'>('survey');
+  const [activeReportSection, setActiveReportSection] = useState<'diagnostic' | 'survey' | 'memoria' | 'plan' | 'checklist' | 'manual'>('diagnostic');
 
   const demandData = calculateResidentialDemand({
     rooms: project.rooms,
@@ -37,36 +45,194 @@ export const ModuleReports: React.FC<ModuleReportsProps> = ({ project, onSavePro
       {/* Sub-navigation for Reports */}
       <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.25rem', flexWrap: 'wrap' }} className="no-print">
         <button
+          className={`btn ${activeReportSection === 'diagnostic' ? 'btn-primary' : 'btn-secondary'}`}
+          onClick={() => setActiveReportSection('diagnostic')}
+        >
+          <ShieldAlert size={16} /> 1. Diagnóstico y Datos Faltantes (V3.0)
+        </button>
+        <button
           className={`btn ${activeReportSection === 'survey' ? 'btn-primary' : 'btn-secondary'}`}
           onClick={() => setActiveReportSection('survey')}
         >
-          <ShieldCheck size={16} /> 1. Levantamiento Físico y Croquis (Nuevo)
+          <ShieldCheck size={16} /> 2. Levantamiento Físico y Croquis
         </button>
         <button
           className={`btn ${activeReportSection === 'memoria' ? 'btn-primary' : 'btn-secondary'}`}
           onClick={() => setActiveReportSection('memoria')}
         >
-          <FileText size={16} /> 2. Memoria Técnica de Cálculo NOM
+          <FileText size={16} /> 3. Memoria Técnica de Cálculo NOM
         </button>
         <button
           className={`btn ${activeReportSection === 'plan' ? 'btn-primary' : 'btn-secondary'}`}
           onClick={() => setActiveReportSection('plan')}
         >
-          <Building size={16} /> 3. Plan de Ejecución en 10 Etapas
+          <Building size={16} /> 4. Plan de Ejecución en 10 Etapas
         </button>
         <button
           className={`btn ${activeReportSection === 'checklist' ? 'btn-primary' : 'btn-secondary'}`}
           onClick={() => setActiveReportSection('checklist')}
         >
-          <CheckSquare size={16} /> 4. Checklist de Inspección en Sitio
+          <CheckSquare size={16} /> 5. Checklist de Inspección en Sitio
         </button>
         <button
           className={`btn ${activeReportSection === 'manual' ? 'btn-primary' : 'btn-secondary'}`}
           onClick={() => setActiveReportSection('manual')}
         >
-          <BookOpen size={16} /> 5. Manual de Usuario
+          <BookOpen size={16} /> 6. Manual de Usuario
         </button>
       </div>
+
+      {/* SECCIÓN DIAGNÓSTICO: DIAGNÓSTICO DE DATOS FALTANTES Y ESTADO DE OBRA (V3.0) */}
+      {activeReportSection === 'diagnostic' && (
+        <div className="card" style={{ padding: '2rem' }}>
+          <div style={{ borderBottom: '2px solid #0f172a', paddingBottom: '1rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+            <div>
+              <span className="badge badge-warning" style={{ marginBottom: '0.4rem' }}>
+                ESTRUCTURA AUTORIZADA · PAQUETE INTEGRAL DE ACTUALIZACIÓN
+              </span>
+              <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--secondary)', margin: 0 }}>
+                DIAGNÓSTICO TÉCNICO DE DATOS FALTANTES Y MATRIZ DE BLOQUEOS
+              </h2>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                Estructura validada de 12 zonas • Acceso exterior borde derecho • Estado real de 10 componentes • Preguntas prioritarias Q01-Q08
+              </p>
+            </div>
+            <button className="btn btn-primary no-print" onClick={() => window.print()}>
+              <Printer size={16} /> Imprimir / Guardar PDF
+            </button>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', fontSize: '0.85rem', lineHeight: 1.6 }}>
+            {/* Aviso Rector */}
+            <div style={{ background: '#fffbeb', padding: '1rem', borderRadius: '8px', borderLeft: '4px solid #ea580c' }}>
+              <strong style={{ color: '#92400e', display: 'block', marginBottom: '0.25rem' }}>
+                REGLA RECTORA DE ANTEPROYECTO:
+              </strong>
+              <p style={{ margin: 0, color: '#78350f' }}>
+                Ningún cálculo de calibre, número de polos de interruptor, recorrido definitivo de tubería o compra de material se considerará 
+                definitivo hasta verificar en sitio las cotas reales de cada estancia, el diámetro y continuidad de mangueras empotradas, y la 
+                factibilidad formal otorgada por CFE para el segundo suministro independiente.
+              </p>
+            </div>
+
+            {/* 1. Estado Real de la Obra */}
+            <div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0284c7', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.3rem', marginBottom: '0.65rem' }}>
+                1. Estado Real de los Componentes (ESTADO_REAL_INSTALACION.csv)
+              </h3>
+              <div style={{ overflowX: 'auto', border: '1px solid var(--border)', borderRadius: '8px' }}>
+                <table style={{ width: '100%', fontSize: '0.8rem', borderCollapse: 'collapse', textAlign: 'left' }}>
+                  <thead>
+                    <tr style={{ background: '#f8fafc', borderBottom: '1px solid var(--border)' }}>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>ID</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Componente</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>¿Existe en Sitio?</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Estado Técnico</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Observaciones de Ingeniería</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Acción de Compra</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {INSTALLATION_REAL_STATUS.map(st => (
+                      <tr key={st.id} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700 }}>{st.id}</td>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700, color: '#0f172a' }}>{st.componente}</td>
+                        <td style={{ padding: '0.45rem 0.75rem' }}>
+                          <span className={`badge ${st.existe === 'SI' ? 'badge-info' : st.existe === 'NO' ? 'badge-danger' : 'badge-warning'}`} style={{ fontSize: '0.7rem' }}>
+                            {st.existe === 'SI' ? 'SÍ EXISTE' : st.existe === 'NO' ? 'NO EXISTE' : 'DESCONOCIDO'}
+                          </span>
+                        </td>
+                        <td style={{ padding: '0.45rem 0.75rem', fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>{st.estado}</td>
+                        <td style={{ padding: '0.45rem 0.75rem', color: '#475569' }}>{st.observaciones}</td>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700, color: st.compra_ahora === 'NO' ? '#475569' : '#b91c1c' }}>{st.compra_ahora}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* 2. Topología Autorizada de 12 Zonas */}
+            <div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0284c7', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.3rem', marginBottom: '0.65rem' }}>
+                2. Topología Autorizada de la Vivienda (12 Zonas Oficiales)
+              </h3>
+              <p style={{ margin: '0 0 0.75rem 0', color: 'var(--text-muted)' }}>
+                Organización espacial confirmada según <code>fuentes/01_ESTRUCTURA_VALIDADA_POR_USUARIO.png</code>. Las coordenadas en pantalla son 
+                esquemáticas y no equivalen a metros de cableado.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem' }}>
+                {VALIDATED_ZONES.map(z => (
+                  <div key={z.id} style={{ border: `1px solid ${z.strokeColor}`, borderRadius: '8px', padding: '0.75rem', background: z.fillColor, fillOpacity: 0.2 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <strong style={{ color: '#0f172a' }}>{z.nombre}</strong>
+                      <span className="badge" style={{ background: '#ffffff', color: '#1e293b', fontSize: '0.68rem', fontWeight: 700 }}>
+                        {z.categoria.toUpperCase()}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: '0.72rem', color: '#334155', marginTop: '0.35rem', lineHeight: 1.4 }}>
+                      {z.notas}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 3. Matriz de Preguntas Prioritarias */}
+            <div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0284c7', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.3rem', marginBottom: '0.65rem' }}>
+                3. Matriz de Preguntas Prioritarias y Bloqueos Técnicos (PREGUNTAS_PRIORITARIAS.csv)
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                {PRIORITY_QUESTIONS.map(q => (
+                  <div key={q.id} style={{ border: `1px solid ${q.prioridad === 'ALTA' ? '#fecaca' : '#fed7aa'}`, borderRadius: '8px', padding: '0.75rem 1rem', background: q.prioridad === 'ALTA' ? '#fff5f5' : '#fffbeb' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
+                      <span className={`badge ${q.prioridad === 'ALTA' ? 'badge-danger' : 'badge-warning'}`} style={{ fontSize: '0.72rem' }}>
+                        {q.id} · PRIORIDAD {q.prioridad}
+                      </span>
+                      <strong style={{ fontSize: '0.8rem', color: '#1e3a8a' }}>Bloquea: {q.modulo_que_bloquea}</strong>
+                    </div>
+                    <div style={{ fontSize: '0.82rem', color: '#0f172a', fontWeight: 600 }}>
+                      {q.dato_pendiente}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 4. Cotas Parciales */}
+            <div>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0284c7', borderBottom: '1px solid #e2e8f0', paddingBottom: '0.3rem', marginBottom: '0.65rem' }}>
+                4. Cotas Parciales de Croquis Pendientes de Verificar (COTAS_PARCIALES.csv)
+              </h3>
+              <div style={{ overflowX: 'auto', border: '1px solid var(--border)', borderRadius: '8px' }}>
+                <table style={{ width: '100%', fontSize: '0.78rem', borderCollapse: 'collapse', textAlign: 'left' }}>
+                  <thead>
+                    <tr style={{ background: '#f8fafc', borderBottom: '1px solid var(--border)' }}>
+                      <th style={{ padding: '0.45rem 0.75rem' }}>ID</th>
+                      <th style={{ padding: '0.45rem 0.75rem' }}>Cota</th>
+                      <th style={{ padding: '0.45rem 0.75rem' }}>Descripción según Croquis</th>
+                      <th style={{ padding: '0.45rem 0.75rem' }}>Condición de Cierre</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PARTIAL_MEASUREMENTS.map(m => (
+                      <tr key={m.id} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700 }}>{m.id}</td>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700, color: '#0284c7' }}>{m.valor} {m.unidad}</td>
+                        <td style={{ padding: '0.45rem 0.75rem' }}>{m.descripcion}</td>
+                        <td style={{ padding: '0.45rem 0.75rem' }}>
+                          <span className="badge badge-warning" style={{ fontSize: '0.68rem' }}>{m.estatus}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* SECCIÓN 0: LEVANTAMIENTO FÍSICO Y CROQUIS EN SITIO */}
       {activeReportSection === 'survey' && (

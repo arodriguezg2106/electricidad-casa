@@ -1,0 +1,13 @@
+ANTIGRAVITY — ACTUALIZACIÓN INTEGRAL DE MI PROYECTO DE INSTALACIÓN ELÉCTRICA
+
+Ya existe un repositorio/aplicación en desarrollo. NO reinicies, NO borres avances y NO sustituyas todo por un diseño nuevo. He colocado la carpeta `referencias_casa/` en el proyecto con fuentes originales, plano esquemático validado, datos, normativa y requisitos.
+
+Lee primero `referencias_casa/LEEME_PRIMERO.md` y después `referencias_casa/instrucciones/01_PROMPT_MAESTRO.md`, el modelo JSON y las tablas CSV. Realiza un inventario del estado actual del código y crea un punto de recuperación.
+
+Dato CRÍTICO: la imagen `fuentes/01_ESTRUCTURA_VALIDADA_POR_USUARIO.png` es la única geometría relativa validada por mí. AZUL = PASILLOS; MORADO = ESCALERAS. La entrada desde la calle está en el LADO DERECHO del dibujo, aprox. a la altura del pasillo entre cocina y sala. Todas las coordenadas SVG/JSON son ESQUEMÁTICAS, NO METROS.
+
+Estado de obra: ya hay MANGUERAS/CONDUITS y CAJAS EMPOTRADAS; NO hay CABLEADO, CONTACTOS MONTADOS, CENTRO DE CARGA PROPIO ni SEGUNDO MEDIDOR CFE. Queremos un suministro y recibo de CFE independientes del actual. El nuevo medidor lo instalará CFE: se presupuestará la preparación privada que corresponda, pero NO la compra de un medidor.
+
+PRIMER ENTREGABLE OBLIGATORIO: plano 2D que replique fielmente la estructura validada, cargue puntos registrados A1-A15/C1-C18 como POSICIONES PRELIMINARES y muestre incertidumbres/cotas faltantes. Enséñame una vista previa y un informe de diferencias antes de escoger materiales o calcular metros de conductor. Después desarrolla módulos de cálculo eléctrico condicional, inventario, cotizaciones, presupuestos y plan por etapas. Revisa el cumplimiento con NOM-001-SEDE y CFE y solicita aprobación de un electricista para especificaciones críticas.
+
+Ejecuta pruebas de importación, persistencia, topología, seguridad de cálculos y ausencia de dimensiones inventadas. Registra qué implementaste, qué está pendiente y cómo ejecutarlo.

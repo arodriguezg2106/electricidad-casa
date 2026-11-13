@@ -1,0 +1,56 @@
+{
+  "proyecto": "Instalación eléctrica independiente de vivienda, Ciudad de México",
+  "fecha_de_corte": "2026-11-12",
+  "tipo": "anteproyecto y desarrollo de aplicación local; revisión por electricista y CFE",
+  "poblacion_objetivo": "dos personas",
+  "geom_fuente_autoridad": "fuentes/01_ESTRUCTURA_VALIDADA_POR_USUARIO.png",
+  "modelo_referencia": "modelo/MODELO_ARQUITECTONICO_ESQUEMATICO.json",
+  "datos_confirmados": [
+    "Distribución relativa validada según último croquis de bloques",
+    "Lado derecho del plano = acceso aproximado hacia la calle, al nivel del pasillo lateral cocina-sala",
+    "El suministro existente llega por red aérea desde poste",
+    "Se pretende contrato y segundo medidor CFE propios, independientes del resto del inmueble",
+    "Canalizaciones/mangueras y cajas o espacios de contactos ya están colocados",
+    "No hay cableado interior nuevo ni mecanismos de contactos instalados",
+    "No hay centro de carga propio ni segundo medidor"
+  ],
+  "datos_por_verificar": [
+    "Viabilidad administrativa y técnica del segundo suministro en CFE",
+    "Ubicación de medidor existente/nuevo y criterio de CFE sobre agrupación",
+    "Distancia poste-mufa y recorrido medidor-tablero",
+    "Medidas de muros, niveles, escaleras, alturas y vanos",
+    "Estado, diámetro, rutas, capacidad y continuidad de mangueras y cajas",
+    "Datos de placa de electrodomésticos y necesidades de las personas",
+    "Ubicación de tablero, tierras y protecciones",
+    "Especificaciones, cantidad y estado de posible cable disponible del padre"
+  ],
+  "estado_aprobacion": {
+    "modelo_arquitectonico_esquematico": "TOPOLOGIA_CONFIRMADA; SIN_ESCALA",
+    "proyecto_electrico": "PENDIENTE",
+    "cfe": "PENDIENTE",
+    "materiales": "NO_COMPRAR_SIN_VALIDACION"
+  },
+  "roles": {
+    "propietarias": "proporcionan medidas, fotografías, preferencias y equipos; realizan obra civil solo con supervisión",
+    "Antigravity": "desarrolla aplicación, levanta información, organiza, calcula condicionalmente, rastrea fuentes y presupuestos",
+    "electricista_calificado": "inspecciona, diseña/valida especificaciones y ejecuta conexiones/pruebas críticas",
+    "CFE": "confirma factibilidad/preparación y realiza instalación/conexión de su medición y servicio"
+  },
+  "fases": [
+    "Levantamiento",
+    "Validación CFE",
+    "Anteproyecto",
+    "Revisión técnica",
+    "Catálogo y compras",
+    "Construcción",
+    "Pruebas y contratación"
+  ],
+  "restricciones": [
+    "NO calcular m a partir de píxeles",
+    "NO usar planos anteriores generados por IA como fuente arquitectónica",
+    "NO inventar precio/stock/descuento",
+    "NO elegir calibre ni interruptor sin cargas, trazado y condiciones",
+    "NO abrir ni intervenir instalaciones energizadas"
+  ],
+  "formato": "datos_de_proyecto_json_v1"
+}

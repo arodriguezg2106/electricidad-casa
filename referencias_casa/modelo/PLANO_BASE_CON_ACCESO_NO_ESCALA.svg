@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="850" viewBox="0 0 1560 850" role="img" aria-label="Estructura arquitectónica validada con acceso desde la calle señalado de manera aproximada">
+<title>Estructura validada de la casa: acceso desde la calle en costado derecho</title>
+<desc>Esquema vectorial no a escala. Las zonas son figuras individuales. Los pasillos son azules y las escaleras moradas. El acceso desde calle está ubicado aproximadamente al nivel del pasillo entre cocina y sala sobre el lado derecho de la imagen.</desc>
+<rect width="1560" height="850" fill="#FCFDFE" />
+<rect x="25" y="20" width="1510" height="76" rx="13" fill="#193E60" />
+<text x="48" y="52" fill="white" font-size="25" font-family="Arial,sans-serif" font-weight="bold">Estructura real de la vivienda · actualización para Antigravity</text>
+<text x="48" y="80" fill="#DAECF7" font-size="16" font-family="Arial,sans-serif">Distribución relativa confirmada por usuario · SIN ESCALA · acceso exterior aproximado</text>
+<g id="estructura" transform="translate(30,100)">
+
+<g id="cuarto_secundario" class="espacio" data-categoria="recamara" data-escala="no"><polygon points="103,335 303,335 303,622 103,622" fill="#F3E5C4" stroke="#26374A" stroke-width="2.3"/><title>Cuarto secundario</title></g>
+<g id="cuarto_pequeno" class="espacio" data-categoria="recamara" data-escala="no"><polygon points="303,466 452,466 452,622 303,622" fill="#F3E5C4" stroke="#26374A" stroke-width="2.3"/><title>Cuarto pequeño</title></g>
+<g id="pasillo_central" class="espacio" data-categoria="circulacion" data-escala="no"><polygon points="303,335 452,335 452,395 603,395 603,466 303,466" fill="#B9DCF2" stroke="#26374A" stroke-width="2.3"/><title>Pasillo central</title></g>
+<g id="escalera_azotea" class="espacio" data-categoria="escaleras" data-escala="no"><polygon points="452,335 603,335 603,395 452,395" fill="#B89DE8" stroke="#26374A" stroke-width="2.3"/><title>Escaleras a la azotea</title></g>
+<g id="escalera_planta_baja" class="espacio" data-categoria="escaleras" data-escala="no"><polygon points="452,466 603,466 603,622 452,622" fill="#B89DE8" stroke="#26374A" stroke-width="2.3"/><title>Escaleras de planta baja al primer piso</title></g>
+<g id="sala_comedor" class="espacio" data-categoria="area_social" data-escala="no"><polygon points="603,335 885,335 885,622 603,622" fill="#DCEEDC" stroke="#26374A" stroke-width="2.3"/><title>Sala-comedor</title></g>
+<g id="bano_secundario" class="espacio" data-categoria="bano" data-escala="no"><polygon points="603,489 698,489 698,605 603,605" fill="#F2BEDB" stroke="#26374A" stroke-width="2.3"/><title>Baño secundario</title></g>
+<g id="cocina" class="espacio" data-categoria="cocina" data-escala="no"><polygon points="603,228 800,228 800,335 603,335" fill="#FFE0BC" stroke="#26374A" stroke-width="2.3"/><title>Cocina</title></g>
+<g id="pasillo_cocina_sala" class="espacio" data-categoria="circulacion" data-escala="no"><polygon points="800,228 885,228 885,335 800,335" fill="#B9DCF2" stroke="#26374A" stroke-width="2.3"/><title>Pasillo de cocina a sala-comedor</title></g>
+<g id="cuarto_principal" class="espacio" data-categoria="recamara" data-escala="no"><polygon points="627,73 885,73 885,228 603,228 603,165 627,165" fill="#F3E5C4" stroke="#26374A" stroke-width="2.3"/><title>Cuarto principal</title></g>
+<g id="bano_principal" class="espacio" data-categoria="bano" data-escala="no"><polygon points="499,73 627,73 627,165 499,165" fill="#F2BEDB" stroke="#26374A" stroke-width="2.3"/><title>Baño principal</title></g>
+<g id="pasillo_bano_principal" class="espacio" data-categoria="circulacion" data-escala="no"><polygon points="499,165 603,165 603,230 499,230" fill="#B9DCF2" stroke="#26374A" stroke-width="2.3"/><title>Pasillo al baño principal</title></g>
+<text text-anchor="middle" x="190" y="450" font-size="17" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="190" dy="0">Cuarto</tspan>
+<tspan x="190" dy="20">secundario</tspan>
+</text>
+<text text-anchor="middle" x="378" y="520" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="378" dy="0">Cuarto</tspan>
+<tspan x="378" dy="19">pequeño</tspan>
+</text>
+<text text-anchor="middle" x="366" y="393" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="366" dy="0">Pasillo</tspan>
+<tspan x="366" dy="17">central</tspan>
+</text>
+<text text-anchor="middle" x="530" y="348" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="530" dy="0">Escaleras</tspan>
+<tspan x="530" dy="16">a azotea</tspan>
+</text>
+<text text-anchor="middle" x="524" y="522" font-size="12" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="524" dy="0">Escalera</tspan>
+<tspan x="524" dy="15">desde planta baja</tspan>
+</text>
+<text text-anchor="middle" x="746" y="438" font-size="21" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="746" dy="0">Sala–comedor</tspan>
+</text>
+<text text-anchor="middle" x="650" y="537" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="650" dy="0">Baño</tspan>
+<tspan x="650" dy="16">secundario</tspan>
+</text>
+<text text-anchor="middle" x="695" y="276" font-size="19" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="695" dy="0">Cocina</tspan>
+</text>
+<text text-anchor="middle" x="839" y="269" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="839" dy="0">Pasillo</tspan>
+<tspan x="839" dy="16">cocina / sala</tspan>
+</text>
+<text text-anchor="middle" x="748" y="132" font-size="20" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="748" dy="0">Cuarto</tspan>
+<tspan x="748" dy="23">principal</tspan>
+</text>
+<text text-anchor="middle" x="565" y="103" font-size="15" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="565" dy="0">Baño</tspan>
+<tspan x="565" dy="18">principal</tspan>
+</text>
+<text text-anchor="middle" x="552" y="190" font-size="12" font-weight="bold" font-family="Arial,sans-serif" fill="#24374C" pointer-events="none">
+<tspan x="552" dy="0">Pasillo al</tspan>
+<tspan x="552" dy="15">baño principal</tspan>
+</text>
+</g>
+<!-- Entrada aproximada: línea de acceso NO es vano ni puerta dibujada -->
+<g id="entrada_calle_aproximada" data-estado="por-confirmar" fill="none" stroke="#D76E21" stroke-width="4">
+  <path d="M 960,397 L 920,397" stroke-dasharray="8,5" />
+  <path d="M 930,388 L 920,397 L 930,406" stroke-linejoin="round" />
+  <rect x="911" y="378" width="10" height="38" rx="2" stroke-dasharray="4,4" fill="#FFF5ED" fill-opacity=".35" />
+</g>
+<g id="rotulo_acceso" font-family="Arial,sans-serif" fill="#B75C16">
+  <text x="932" y="347" font-size="17" font-weight="bold">CALLE</text>
+  <text x="932" y="367" font-size="13">Entrada aprox.</text>
+  <text x="932" y="426" font-size="12">(validar)</text>
+</g>
+<g id="indicaciones" font-family="Arial,sans-serif">
+<rect x="1070" y="133" width="456" height="648" rx="12" fill="white" stroke="#C8D6E3" stroke-width="1.5"/>
+<text x="1095" y="174" fill="#193E60" font-size="23" font-weight="bold">Lectura del plano</text>
+<line x1="1094" y1="192" x2="1500" y2="192" stroke="#CFDAE6"/>
+<rect x="1097" y="214" width="24" height="22" fill="#B9DCF2" stroke="#26374A"/><text x="1134" y="232" font-size="16" fill="#26374A">Azul = pasillos</text>
+<rect x="1097" y="251" width="24" height="22" fill="#B89DE8" stroke="#26374A"/><text x="1134" y="269" font-size="16" fill="#26374A">Morado = escaleras</text>
+<rect x="1097" y="288" width="24" height="22" fill="#F3E5C4" stroke="#26374A"/><text x="1134" y="306" font-size="16" fill="#26374A">Recámaras</text>
+<rect x="1097" y="325" width="24" height="22" fill="#F2BEDB" stroke="#26374A"/><text x="1134" y="343" font-size="16" fill="#26374A">Baños</text>
+<rect x="1097" y="362" width="24" height="22" fill="#FFE0BC" stroke="#26374A"/><text x="1134" y="380" font-size="16" fill="#26374A">Cocina</text>
+<rect x="1097" y="399" width="24" height="22" fill="#DCEEDC" stroke="#26374A"/><text x="1134" y="417" font-size="16" fill="#26374A">Sala / comedor</text>
+<line x1="1094" y1="441" x2="1500" y2="441" stroke="#CFDAE6" />
+<text x="1095" y="474" font-size="20" font-weight="bold" fill="#193E60">Dato nuevo confirmado</text>
+<text x="1095" y="502" font-size="16" fill="#26374A">Acceso a la calle: lado DERECHO</text>
+<text x="1095" y="526" font-size="16" fill="#26374A">del esquema, cerca del pasillo entre</text>
+<text x="1095" y="550" font-size="16" fill="#26374A">cocina y sala-comedor.</text>
+<text x="1095" y="579" font-size="15" font-weight="bold" fill="#B75C16">Punto y puerta: por confirmar</text>
+<line x1="1094" y1="606" x2="1500" y2="606" stroke="#CFDAE6" />
+<text x="1095" y="634" font-size="20" font-weight="bold" fill="#193E60">Restricciones</text>
+<text x="1095" y="662" font-size="15" fill="#26374A">• No usar píxeles como metros.</text>
+<text x="1095" y="687" font-size="15" fill="#26374A">• No inferir puertas ni muros portantes.</text>
+<text x="1095" y="712" font-size="15" fill="#26374A">• No se ha determinado el norte real.</text>
+<text x="1095" y="737" font-size="15" fill="#26374A">• Falta cotejar las medidas manuscritas.</text>
+</g>
+<text x="46" y="827" font-size="14" font-family="Arial,sans-serif" fill="#506A83">Las figuras reflejan la ubicación relativa de los espacios de la imagen validada; no constituyen plano ejecutivo ni levantamiento a escala.</text>
+</svg>

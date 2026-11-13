@@ -1,0 +1,13 @@
+﻿Clave,Categoria,Concepto_preliminar,Especificacion_aprobada,Unidad,Cantidad,Precio_unitario_MXN,Importe_MXN,Existente_reutilizable,Compra_estado,Aprobacion_profesional
+S01,PREPARACION_CFE,Preparación para nuevo medidor según CFE,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S02,ALIMENTADOR,Alimentador desde preparación a tablero,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S03,TABLERO,Centro de carga nuevo,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S04,PROTECCIONES,Dispositivos principales y derivados,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S05,CONDUCTOR_INTERIOR,Conductores de circuitos nuevos,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S06,MECANISMOS,Contactos apagadores y placas,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S07,TIERRA,Conductor de protección/puesta a tierra y uniones,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S08,REPOSICION_CONDUITS,Solo canalización existente no apta o faltante,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S09,REPOSICION_CAJAS,Solo cajas existentes no aptas o faltantes,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S10,PRUEBAS,Instrumentación y verificación profesional,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S11,MANO_OBRA,Mano de obra profesional,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE
+S12,OBRA_CIVIL,Obra civil necesaria tras recorrido confirmado,PENDIENTE,,,,,PENDIENTE,NO_COMPRAR,PENDIENTE

@@ -1,0 +1,15 @@
+﻿ID,Equipo_o_uso,Ubicacion,Actual_futuro_opcional,Potencia_W,Carga_VA,Tension_V,Frecuencia_Hz,Factor_potencia,Fuente_placa,Confirmado_por,Observaciones
+CAR-001,Refrigerador,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-002,Microondas,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-003,Lavadora,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-004,Estufa o parrilla,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-005,Iluminación de sala/comedor,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-006,Iluminación de recámaras,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-007,Contactos generales,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-008,Router/telecomunicaciones,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-009,Televisor/equipos multimedia,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-010,Computadora,SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-011,Secadora (si existe),SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-012,Calentador eléctrico (si existe),SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-013,Bomba de agua (si existe),SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías
+CAR-014,Aire acondicionado (si existe),SIN_ASIGNAR,POR_CONFIRMAR,,,,,,,,Potencias deliberadamente vacías

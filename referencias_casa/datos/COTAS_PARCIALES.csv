@@ -1,0 +1,12 @@
+﻿ID,Valor observado,Unidad,Descripción,Estatus,Fuente,Confirmacion_usuario,Elemento_geometrico_id
+M01,7.43,m,"Cota longitudinal señalada al lado derecho del croquis «Cocina, pasillo y sala»",UBICACION_GRAFICA_IDENTIFICADA; EXTREMOS POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M02,4.06,m,"Cota horizontal inferior del croquis «Cocina, pasillo y sala»",UBICACION_GRAFICA_IDENTIFICADA; EXTREMOS POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M03,3.55,m,"Cota horizontal rotulada «Cuarto», junto/arriba de cocina",ASOCIACION_EXACTA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M04,2.27,m,Cota del costado izquierdo en «Baño y cuarto principal»,ASOCIACION_EXACTA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M05,3.90,m,"Cota vertical exterior a la derecha en «Baño y cuarto principal», lectura aproximada",LECTURA_Y_EXTREMOS_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M06,1.50,m,Ancho de ventana superior dibujada a la derecha,IDENTIFICACION_DE_VENTANA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M07,1.17,m,Altura de ventana superior dibujada a la derecha,IDENTIFICACION_DE_VENTANA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M08,1.50,m,Ancho de ventana inferior dibujada a la derecha,IDENTIFICACION_DE_VENTANA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M09,1.14,m,Altura de ventana inferior dibujada a la derecha,IDENTIFICACION_DE_VENTANA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M10,2.20,m,"Cota vertical de armario de cuarto principal, en croquis superior",ASOCIACION_Y_CIERRE_DE_GEOMETRIA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,
+M11,0.65,m,Cota horizontal pequeña en dibujo del armario principal,ASOCIACION_Y_CIERRE_DE_GEOMETRIA_POR_VERIFICAR,fuentes/02_CROQUIS_CON_MEDIDAS.jpg,PENDIENTE,

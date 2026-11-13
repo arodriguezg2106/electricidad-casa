@@ -1,0 +1,9 @@
+﻿ID,Prioridad,Dato_pendiente,Modulo_que_bloquea,Respuesta,Fecha_respuesta,Validada
+Q01,ALTA,"Ubicación y distancia del medidor actual, lugar del nuevo, acceso de fachada y consulta CFE",CFE/medidor/acometida,,,NO
+Q02,ALTA,"Medidas completas de los 12 espacios y alturas/cambios de nivel, especialmente cuartos izquierdo",Geometría,,,NO
+Q03,ALTA,"Ubicación física y rutas de mangueras y cajas, diámetro y continuidad por electricista",Preinstalación,,,NO
+Q04,ALTA,Listado de equipos y fotos de placas para estimar cargas reales,Cargas,,,NO
+Q05,ALTA,Sitio viable para centro de carga y recorrido hasta el medidor nuevo,Tablero/alimentador,,,NO
+Q06,MEDIA,Puertas y ventanas con dimensiones y sentidos de apertura,Aberturas,,,NO
+Q07,MEDIA,"Marcajes, cantidad y estado del cable del padre",Reutilización,,,NO
+Q08,MEDIA,Definir iluminación y contactos deseados respecto a posiciones C1-C18 y A1-A15,Distribución,,,NO

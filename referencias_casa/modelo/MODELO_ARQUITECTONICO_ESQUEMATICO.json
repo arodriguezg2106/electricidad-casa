@@ -1,0 +1,648 @@
+{
+  "id": "vivienda_cdmx_suministro_independiente",
+  "version": "3.0-integral-2026-11-12",
+  "fecha_preparacion": "2026-11-12",
+  "proposito": "Modelo arquitectonico de referencia para desarrollar anteproyecto electrico y software en Antigravity",
+  "fuentes_jerarquia": [
+    {
+      "ruta": "fuentes/01_ESTRUCTURA_VALIDADA_POR_USUARIO.png",
+      "rol": "AUTORITATIVA PARA TOPOLOGIA Y UBICACION RELATIVA",
+      "confianza": "confirmada por usuario"
+    },
+    {
+      "ruta": "modelo/PLANO_BASE_CON_ACCESO.svg",
+      "rol": "VECTOR CALCADO DE ESTRUCTURA; NO ESCALADO",
+      "confianza": "derivado, geometria proporcional ficticia"
+    },
+    {
+      "ruta": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg",
+      "rol": "FUENTE DE COTAS PARCIALES; NO DETERMINA SOLA LA TOPOLOGIA",
+      "confianza": "lectura condicionada a verificacion"
+    },
+    {
+      "ruta": "fuentes/03_CROQUIS_GENERAL_MANUSCRITO.jpg",
+      "rol": "APOYO PARA ENTENDER CIRCULACION Y ESCALERAS",
+      "confianza": "interpretativo"
+    },
+    {
+      "ruta": "fuentes/04_LEVANTAMIENTO_ELECTRICO_A.jpg",
+      "rol": "NUMERACION DE PUNTOS Y VANOS; NO CIRCUITOS",
+      "confianza": "verificar in situ"
+    },
+    {
+      "ruta": "fuentes/05_LEVANTAMIENTO_ELECTRICO_B.jpg",
+      "rol": "NUMERACION DE PUNTOS Y VANOS; NO CIRCUITOS",
+      "confianza": "verificar in situ"
+    },
+    {
+      "ruta": "fuentes/06_CONTEO_Y_OTROS_CROQUIS.jpg",
+      "rol": "CONTEO DE PUNTOS ELECTRICOS, APOYO",
+      "confianza": "preliminar"
+    },
+    {
+      "ruta": "fuentes/07_ACLARACION_AZUL_PASILLO_MORADO_ESCALERAS.png",
+      "rol": "ACLARACION EXPLICITA SOBRE COLORES",
+      "confianza": "confirmada por usuario"
+    }
+  ],
+  "reglas": [
+    "Tomar ultima imagen de bloques como verdad topologica, nunca reinterpretar con planos generados previamente por IA",
+    "Coordenadas en pixeles para la visualizacion, NO en metros; no calcular areas o longitud de cable desde ellas",
+    "Azul claro es pasillo/circulacion, morado son escaleras; los limites de color no confirman muros ni puertas",
+    "No hay norte geografico confirmado; el lado derecho de la imagen no equivale al este",
+    "El acceso desde calle es aproximado, sobre el costado DERECHO del esquema a la altura del pasillo entre cocina y sala",
+    "El baño secundario aparece como subregion del area general de sala; sustraerlo de sala al calcular superficies para evitar doble conteo",
+    "No dibujar aberturas de puertas, ventanas, canalizaciones o medidores sin validacion",
+    "Si una cota no cierra, mantenerla pendiente y solicitar verificacion en lugar de distorsionar zonas"
+  ],
+  "sistema_coordenadas": {
+    "unidades": "px",
+    "ancho_original": 898,
+    "alto_original": 635,
+    "origen": "superior_izquierda",
+    "escala_metros_por_pixel": null,
+    "orientacion_geografica": null
+  },
+  "inmueble": {
+    "ciudad": "Ciudad de México",
+    "unidad_de_trabajo": "piso destinado a vivienda, con escaleras hacia planta baja y azotea",
+    "conexion_cfe": "red publica aerea desde poste",
+    "medidor_existente": "en el inmueble, localizacion exacta no informada",
+    "nuevo_servicio": "medidor, contrato, recibo, alimentador y tablero independientes; sujeto a CFE"
+  },
+  "acceso_desde_calle": {
+    "lado_relativo_de_la_imagen": "derecho",
+    "referencia": "aproximadamente a la altura del pasillo entre cocina y sala-comedor",
+    "ancla_provisional_px": {
+      "x": 885,
+      "y": 295
+    },
+    "franja_de_altura_referencial_px": {
+      "y_min": 228,
+      "y_max": 335
+    },
+    "cercania_zona_id": "pasillo_cocina_sala",
+    "tipo": "acceso_desde_calle_segun_usuario",
+    "confianza": "POSICION_APROXIMADA; PUNTO_DE_PUERTA_NO_CONFIRMADO",
+    "requiere_verificar": [
+      "si es puerta exterior o acceso a pasillo exterior",
+      "ancho y altura de vano",
+      "si el acceso se encuentra en planta/altura exacta",
+      "donde esta la fachada accesible para medidor",
+      "orientacion real del inmueble"
+    ]
+  },
+  "espacios": [
+    {
+      "id": "cuarto_secundario",
+      "nombre": "Cuarto secundario",
+      "categoria": "recamara",
+      "poligono_esquematico_px": [
+        [
+          103,
+          335
+        ],
+        [
+          303,
+          335
+        ],
+        [
+          303,
+          622
+        ],
+        [
+          103,
+          622
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "cuarto_pequeno",
+      "nombre": "Cuarto pequeño",
+      "categoria": "recamara",
+      "poligono_esquematico_px": [
+        [
+          303,
+          466
+        ],
+        [
+          452,
+          466
+        ],
+        [
+          452,
+          622
+        ],
+        [
+          303,
+          622
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "pasillo_central",
+      "nombre": "Pasillo central",
+      "categoria": "circulacion",
+      "poligono_esquematico_px": [
+        [
+          303,
+          335
+        ],
+        [
+          452,
+          335
+        ],
+        [
+          452,
+          395
+        ],
+        [
+          603,
+          395
+        ],
+        [
+          603,
+          466
+        ],
+        [
+          303,
+          466
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "escalera_azotea",
+      "nombre": "Escaleras a la azotea",
+      "categoria": "escaleras",
+      "poligono_esquematico_px": [
+        [
+          452,
+          335
+        ],
+        [
+          603,
+          335
+        ],
+        [
+          603,
+          395
+        ],
+        [
+          452,
+          395
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "escalera_planta_baja",
+      "nombre": "Escaleras de planta baja al primer piso",
+      "categoria": "escaleras",
+      "poligono_esquematico_px": [
+        [
+          452,
+          466
+        ],
+        [
+          603,
+          466
+        ],
+        [
+          603,
+          622
+        ],
+        [
+          452,
+          622
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "sala_comedor",
+      "nombre": "Sala-comedor",
+      "categoria": "area_social",
+      "poligono_esquematico_px": [
+        [
+          603,
+          335
+        ],
+        [
+          885,
+          335
+        ],
+        [
+          885,
+          622
+        ],
+        [
+          603,
+          622
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "bano_secundario",
+      "nombre": "Baño secundario",
+      "categoria": "bano",
+      "poligono_esquematico_px": [
+        [
+          603,
+          489
+        ],
+        [
+          698,
+          489
+        ],
+        [
+          698,
+          605
+        ],
+        [
+          603,
+          605
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "cocina",
+      "nombre": "Cocina",
+      "categoria": "cocina",
+      "poligono_esquematico_px": [
+        [
+          603,
+          228
+        ],
+        [
+          800,
+          228
+        ],
+        [
+          800,
+          335
+        ],
+        [
+          603,
+          335
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "pasillo_cocina_sala",
+      "nombre": "Pasillo de cocina a sala-comedor",
+      "categoria": "circulacion",
+      "poligono_esquematico_px": [
+        [
+          800,
+          228
+        ],
+        [
+          885,
+          228
+        ],
+        [
+          885,
+          335
+        ],
+        [
+          800,
+          335
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "cuarto_principal",
+      "nombre": "Cuarto principal",
+      "categoria": "recamara",
+      "poligono_esquematico_px": [
+        [
+          627,
+          73
+        ],
+        [
+          885,
+          73
+        ],
+        [
+          885,
+          228
+        ],
+        [
+          603,
+          228
+        ],
+        [
+          603,
+          165
+        ],
+        [
+          627,
+          165
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "bano_principal",
+      "nombre": "Baño principal",
+      "categoria": "bano",
+      "poligono_esquematico_px": [
+        [
+          499,
+          73
+        ],
+        [
+          627,
+          73
+        ],
+        [
+          627,
+          165
+        ],
+        [
+          499,
+          165
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    },
+    {
+      "id": "pasillo_bano_principal",
+      "nombre": "Pasillo al baño principal",
+      "categoria": "circulacion",
+      "poligono_esquematico_px": [
+        [
+          499,
+          165
+        ],
+        [
+          603,
+          165
+        ],
+        [
+          603,
+          230
+        ],
+        [
+          499,
+          230
+        ]
+      ],
+      "geometria": "ESQUEMATICA_VALIDADA_EN_TOPOLOGIA_NO_EN_DIMENSIONES",
+      "cotas_reales_asociadas": [],
+      "aberturas": "DESCONOCIDAS",
+      "electricidad": "PENDIENTE_DE_UBICAR_SOBRE_PLANO"
+    }
+  ],
+  "relaciones_de_uso": [
+    {
+      "desde": "cuarto_secundario",
+      "hacia": "pasillo_central",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    },
+    {
+      "desde": "cuarto_pequeno",
+      "hacia": "pasillo_central",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    },
+    {
+      "desde": "pasillo_central",
+      "hacia": "escalera_azotea",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    },
+    {
+      "desde": "pasillo_central",
+      "hacia": "escalera_planta_baja",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    },
+    {
+      "desde": "pasillo_cocina_sala",
+      "hacia": "cocina",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    },
+    {
+      "desde": "pasillo_cocina_sala",
+      "hacia": "sala_comedor",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    },
+    {
+      "desde": "bano_principal",
+      "hacia": "pasillo_bano_principal",
+      "tipo": "adyacencia_en_croquis",
+      "paso_fisico_confirmado": false
+    }
+  ],
+  "cotas_parciales": [
+    {
+      "id": "M01",
+      "valor_textual": "7.43",
+      "unidad": "m",
+      "descripcion": "Cota longitudinal señalada al lado derecho del croquis «Cocina, pasillo y sala»",
+      "estatus": "UBICACION_GRAFICA_IDENTIFICADA; EXTREMOS POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M02",
+      "valor_textual": "4.06",
+      "unidad": "m",
+      "descripcion": "Cota horizontal inferior del croquis «Cocina, pasillo y sala»",
+      "estatus": "UBICACION_GRAFICA_IDENTIFICADA; EXTREMOS POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M03",
+      "valor_textual": "3.55",
+      "unidad": "m",
+      "descripcion": "Cota horizontal rotulada «Cuarto», junto/arriba de cocina",
+      "estatus": "ASOCIACION_EXACTA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M04",
+      "valor_textual": "2.27",
+      "unidad": "m",
+      "descripcion": "Cota del costado izquierdo en «Baño y cuarto principal»",
+      "estatus": "ASOCIACION_EXACTA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M05",
+      "valor_textual": "3.90",
+      "unidad": "m",
+      "descripcion": "Cota vertical exterior a la derecha en «Baño y cuarto principal», lectura aproximada",
+      "estatus": "LECTURA_Y_EXTREMOS_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M06",
+      "valor_textual": "1.50",
+      "unidad": "m",
+      "descripcion": "Ancho de ventana superior dibujada a la derecha",
+      "estatus": "IDENTIFICACION_DE_VENTANA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M07",
+      "valor_textual": "1.17",
+      "unidad": "m",
+      "descripcion": "Altura de ventana superior dibujada a la derecha",
+      "estatus": "IDENTIFICACION_DE_VENTANA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M08",
+      "valor_textual": "1.50",
+      "unidad": "m",
+      "descripcion": "Ancho de ventana inferior dibujada a la derecha",
+      "estatus": "IDENTIFICACION_DE_VENTANA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M09",
+      "valor_textual": "1.14",
+      "unidad": "m",
+      "descripcion": "Altura de ventana inferior dibujada a la derecha",
+      "estatus": "IDENTIFICACION_DE_VENTANA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M10",
+      "valor_textual": "2.20",
+      "unidad": "m",
+      "descripcion": "Cota vertical de armario de cuarto principal, en croquis superior",
+      "estatus": "ASOCIACION_Y_CIERRE_DE_GEOMETRIA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    },
+    {
+      "id": "M11",
+      "valor_textual": "0.65",
+      "unidad": "m",
+      "descripcion": "Cota horizontal pequeña en dibujo del armario principal",
+      "estatus": "ASOCIACION_Y_CIERRE_DE_GEOMETRIA_POR_VERIFICAR",
+      "fuente": "fuentes/02_CROQUIS_CON_MEDIDAS.jpg"
+    }
+  ],
+  "levantamiento_puntos": {
+    "apagadores_estimados": "A1-A15",
+    "contactos_estimados": "C1-C18",
+    "puertas": "P1-P7 segun notas",
+    "nota": "referencias de ubicacion, NO definicion de circuitos, calibre o equipos instalados"
+  },
+  "geometria_solapada": {
+    "contenido_en": "sala_comedor",
+    "subregion": "bano_secundario",
+    "accion": "subtract_for_net_area",
+    "warning": "La zona sala_comedor del esquema base incluye el hueco del baño secundario por solapamiento semantico"
+  },
+  "faltantes_criticos": [
+    "distancias entre muros y espesores",
+    "alturas de techos y desniveles",
+    "acceso exterior exacto y ruta a medidor",
+    "medidor actual y lugar viable de nuevo medidor conforme CFE",
+    "datos de placa de cargas y demanda",
+    "ubicacion de tablero y rutas de ductos",
+    "material y estado del cable existente",
+    "puertas, ventanas, claros y sentido de apertura",
+    "condiciones y verificaciones de puesta a tierra"
+  ],
+  "estado_instalacion_confirmado": {
+    "canalizaciones_mangueras": {
+      "existen": true,
+      "estado": "INSTALADAS; sin diagnostico de continuidad, diametro, llenado, rutas y adecuacion",
+      "reutilizacion": "CONDICIONADA A INSPECCION"
+    },
+    "cajas_para_contactos": {
+      "existen": true,
+      "estado": "ESPACIOS/CAJAS EMPOTRADAS PREPARADAS; cantidad y condicion sin verificar",
+      "reutilizacion": "CONDICIONADA A INSPECCION"
+    },
+    "cableado_de_la_vivienda": {
+      "existe": false,
+      "estado": "NO INSTALADO"
+    },
+    "contactos_de_pared_montados": {
+      "existen": false,
+      "estado": "NO INSTALADOS"
+    },
+    "apagadores_montados": {
+      "existen": null,
+      "estado": "NO CONFIRMADO; conteo A1-A15 es ubicacion preliminar, NO inventario instalado"
+    },
+    "centro_de_carga_propio": {
+      "existe": false,
+      "estado": "NO INSTALADO; diseño pendiente"
+    },
+    "segundo_medidor_cfe": {
+      "existe": false,
+      "estado": "NO INSTALADO; suministro por contratar y solicitar a CFE"
+    },
+    "contrato_cfe_independiente": {
+      "existe": false,
+      "estado": "PENDIENTE"
+    },
+    "cable_disponible_del_padre": {
+      "existe": null,
+      "estado": "POSIBLE INVENTARIO POR CARACTERIZAR; desconocido tipo, material, sección, aislamiento, metros y estado"
+    }
+  },
+  "criterios_generales": {
+    "alcance": "ANTEPROYECTO, no plano ejecutivo ni certificacion",
+    "nunca_especificar_definitivamente": "calibre de conductores, capacidad de termomagneticos, configuracion de acometida, cantidad de fases, tablero, puesta a tierra sin datos y revision calificada",
+    "medidor_nuevo": "pendiente de instalacion por CFE; no incluir compra privada del medidor",
+    "nueva_instalacion": "aislada de alimentacion y circuitos existentes; no introducir puentes entre los dos servicios",
+    "numeracion_A_C": "A=apagador; C=contacto en croquis; NO es identificador de circuito"
+  },
+  "referencia_acceso": {
+    "lado_de_imagen": "derecho",
+    "altura_aproximada": "pasillo lateral entre cocina y sala comedor",
+    "es_vano_confirmado": false,
+    "es_fachada_con_medidor_confirmada": false,
+    "orientacion_geografica_confirmada": false
+  }
+}

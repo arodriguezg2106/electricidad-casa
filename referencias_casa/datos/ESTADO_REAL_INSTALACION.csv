@@ -1,0 +1,11 @@
+﻿ID,Componente,Existe o instalado,Estado,Observaciones,Compra ahora
+E01,Canalizaciones o mangueras,SI,EXISTENTES_SIN_VERIFICAR,"Inspección continuidad diámetro capacidad ocupación, posible aprovechamiento",NO
+E02,Cajas/huecos de contactos,SI,EXISTENTES_SIN_VERIFICAR,Registrar cantidad tamaño y estado,NO
+E03,Cableado interior nuevo,NO,NO_INSTALADO,Diseño/cálculo/catálogo completos pendientes,NO_HASTA_CALCULO
+E04,Contactos montados,NO,NO_INSTALADOS,Diseño y compra futura sujetos a cantidad y grado de protección,NO_HASTA_DISENO
+E05,Apagadores montados,DESCONOCIDO,POR_VERIFICAR,"A1-A15 es listado de puntos, no evidencia de mecanismos",NO_HASTA_VERIFICAR
+E06,Centro de carga del piso,NO,NO_INSTALADO,Ubicación/capacidad/configuración deben calcularse,NO_HASTA_CALCULO
+E07,Segundo medidor CFE,NO,NO_INSTALADO,"Lo instala CFE, no se compra por separado",NUNCA_MEDIDOR_PARTICULAR
+E08,Contrato de CFE independiente,NO,PENDIENTE,"Viabilidad, preparación y contratación",TRAMITE_PENDIENTE
+E09,Protecciones y puesta a tierra,DESCONOCIDO,POR_PROYECTAR,No asumir que sistema existente sirve al nuevo servicio,NO_HASTA_REVISION
+E10,Cable del padre,DESCONOCIDO,INVENTARIO_POTENCIAL,"Faltan marca, material, sección, tipo, metros, condición y aptitud",NO_DESCONTAR_DEL_BOM

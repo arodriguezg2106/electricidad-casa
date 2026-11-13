@@ -1,0 +1,3 @@
+﻿ID,Elemento,Origen,Destino,Zona,Diametro_mm,Material,Longitud_real_m,Continuidad_verificada,Estado_fisico,Puede_reutilizarse,Foto,Observaciones
+CAN-001,CANALIZACION,SIN_IDENTIFICAR,SIN_IDENTIFICAR,,,,,NO,PENDIENTE,PENDIENTE,,Fila ejemplo: duplicar por cada ruta identificada; no representa una ruta existente comprobada
+CAJ-001,CAJA,SIN_IDENTIFICAR,,,,,,NO,PENDIENTE,PENDIENTE,,Fila ejemplo: duplicar por cada caja; conteo real aún no validado

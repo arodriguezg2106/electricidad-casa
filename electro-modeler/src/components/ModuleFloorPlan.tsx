@@ -17,11 +17,26 @@ import {
   ShieldCheck,
   DoorOpen,
   Maximize2,
-  X
+  X,
+  Compass,
+  HelpCircle,
+  FileSearch,
+  ArrowRight,
+  ShieldAlert,
+  CheckCircle2,
+  ChevronRight,
+  ExternalLink
 } from 'lucide-react';
-import type { Room, ElectricalElement, ConduitPath, SurveyElement, PhotoData } from '../types.ts';
+import type { Room, ElectricalElement, ConduitPath, SurveyElement, PhotoData, ValidatedZone } from '../types.ts';
 import photosJson from '../data/photosData.json';
 import { exportToDxf } from '../utils/dxfExporter.ts';
+import { 
+  VALIDATED_ZONES, 
+  STREET_ACCESS, 
+  PARTIAL_MEASUREMENTS, 
+  INSTALLATION_REAL_STATUS, 
+  PRIORITY_QUESTIONS 
+} from '../data/validatedTopology.ts';
 
 interface ModuleFloorPlanProps {
   rooms: Room[];
@@ -52,14 +67,15 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
   const [isPanning, setIsPanning] = useState<boolean>(false);
   const [startPan, setStartPan] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // View Mode: 'hybrid' | 'survey' | 'proposed'
-  const [viewMode, setViewMode] = useState<'hybrid' | 'survey' | 'proposed'>('hybrid');
+  // View Mode: 'validated' | 'survey' | 'diagnostic' | 'proposed' | 'hybrid'
+  const [viewMode, setViewMode] = useState<'validated' | 'survey' | 'diagnostic' | 'proposed' | 'hybrid'>('validated');
 
   // Level Filter: 'all' | 'nivel_1' | 'arriba'
   const [levelFilter, setLevelFilter] = useState<'all' | 'nivel_1' | 'arriba'>('all');
 
   // Layers visibility toggles
   const [layers, setLayers] = useState<{ [key: string]: boolean }>({
+    layer_validated_arch: true,
     layer_arch: true,
     layer_doors: true,
     layer_windows: true,
@@ -74,9 +90,13 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
   });
 
   // Selected item for properties inspector
+  const [selectedZone, setSelectedZone] = useState<ValidatedZone | null>(null);
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
   const [selectedElement, setSelectedElement] = useState<ElectricalElement | null>(null);
   const [selectedSurvey, setSelectedSurvey] = useState<SurveyElement | null>(null);
+
+  // Reference comparison modal (Source 01 & Source 07)
+  const [showRefModal, setShowRefModal] = useState<boolean>(false);
 
   // Photo viewer modal
   const [activePhotoModal, setActivePhotoModal] = useState<PhotoData | null>(null);
@@ -274,23 +294,31 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
 
           <div style={{ width: '1px', height: '22px', background: 'var(--border)', margin: '0 0.2rem' }} />
 
-          {/* Mode Switcher: Hybrid vs Survey vs Proposed */}
+          {/* Mode Switcher: Validated Topology vs Survey vs Diagnostic vs Proposed vs Hybrid */}
           <div style={{ display: 'flex', background: '#f1f5f9', padding: '2px', borderRadius: '6px', gap: '2px' }}>
             <button
-              className={`btn btn-sm ${viewMode === 'hybrid' ? 'btn-primary' : 'btn-secondary'}`}
-              style={{ padding: '0.2rem 0.55rem', fontSize: '0.75rem' }}
-              onClick={() => setViewMode('hybrid')}
-              title="Superposición de levantamiento en sitio y propuesta eléctrica nueva"
+              className={`btn btn-sm ${viewMode === 'validated' ? 'btn-primary' : 'btn-secondary'}`}
+              style={{ padding: '0.2rem 0.55rem', fontSize: '0.75rem', fontWeight: 700 }}
+              onClick={() => { setViewMode('validated'); setSelectedZone(VALIDATED_ZONES[0]); }}
+              title="Topología oficial autorizada de 12 zonas según fuentes/01_ESTRUCTURA_VALIDADA_POR_USUARIO.png"
             >
-              Modo Híbrido
+              🏛️ Estructura Validada (12 Zonas)
             </button>
             <button
               className={`btn btn-sm ${viewMode === 'survey' ? 'btn-primary' : 'btn-secondary'}`}
               style={{ padding: '0.2rem 0.55rem', fontSize: '0.75rem' }}
               onClick={() => setViewMode('survey')}
-              title="Sólo datos reales del levantamiento físico: A1-A15, C1-C18, P1-P7, V1-V2, Clósets"
+              title="Puntos de levantamiento: A1-A15, C1-C18, P1-P7, V1-V2, Clósets y cotas M01-M11"
             >
-              Plano Levantamiento (Croquis)
+              📐 Levantamiento y Croquis
+            </button>
+            <button
+              className={`btn btn-sm ${viewMode === 'diagnostic' ? 'btn-primary' : 'btn-secondary'}`}
+              style={{ padding: '0.2rem 0.55rem', fontSize: '0.75rem' }}
+              onClick={() => setViewMode('diagnostic')}
+              title="Matriz de datos faltantes, bloqueos de ingeniería (Q01-Q08) y estado de preinstalación"
+            >
+              ⚠️ Diagnóstico y Bloqueos
             </button>
             <button
               className={`btn btn-sm ${viewMode === 'proposed' ? 'btn-primary' : 'btn-secondary'}`}
@@ -298,9 +326,29 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
               onClick={() => setViewMode('proposed')}
               title="Instalación nueva calculada bajo NOM-001-SEDE-2012"
             >
-              Plano Propuesta Eléctrica
+              ⚡ Propuesta Eléctrica NOM
+            </button>
+            <button
+              className={`btn btn-sm ${viewMode === 'hybrid' ? 'btn-primary' : 'btn-secondary'}`}
+              style={{ padding: '0.2rem 0.55rem', fontSize: '0.75rem' }}
+              onClick={() => setViewMode('hybrid')}
+              title="Superposición de estructura, levantamiento y propuesta eléctrica"
+            >
+              🔄 Modo Híbrido
             </button>
           </div>
+
+          <div style={{ width: '1px', height: '22px', background: 'var(--border)', margin: '0 0.2rem' }} />
+
+          {/* Reference Modal Button */}
+          <button
+            className="btn btn-secondary btn-sm"
+            onClick={() => setShowRefModal(true)}
+            style={{ fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+            title="Comparar directamente con la fotografía del croquis autoritativo (fuente 01)"
+          >
+            <FileSearch size={14} color="#0284c7" /> Ver Fuente 01 Oficial
+          </button>
 
           <div style={{ width: '1px', height: '22px', background: 'var(--border)', margin: '0 0.2rem' }} />
 
@@ -385,7 +433,126 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
 
       {/* Main CAD Canvas & Inspector Panel */}
       <div style={{ display: 'flex', gap: '0.75rem', flex: 1, minHeight: 0 }}>
-        {/* Interactive SVG Canvas */}
+        {viewMode === 'diagnostic' ? (
+          /* ==================================================== */
+          /* VISTA INTEGRAL: DIAGNÓSTICO Y MATRIZ DE BLOQUEOS     */
+          /* ==================================================== */
+          <div style={{ flex: 1, background: '#ffffff', borderRadius: '12px', border: '1px solid var(--border)', overflowY: 'auto', padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {/* Header */}
+            <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', margin: '0 0 0.25rem 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldAlert size={22} color="#ea580c" /> Diagnóstico Integral de Datos Faltantes y Estado de Obra
+                </h3>
+                <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', margin: 0 }}>
+                  Matriz de bloqueos técnicos según fuentes oficiales, NOM-001-SEDE-2012 y requisitos de CFE.
+                </p>
+              </div>
+              <button 
+                className="btn btn-primary btn-sm"
+                onClick={() => setViewMode('validated')}
+              >
+                Ver Plano 2D Validado
+              </button>
+            </div>
+
+            {/* 4 Cards: Real Installation State */}
+            <div>
+              <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#334155', marginBottom: '0.65rem' }}>
+                1. Estado Real de los Componentes (ESTADO_REAL_INSTALACION.csv)
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.75rem' }}>
+                {INSTALLATION_REAL_STATUS.map(st => (
+                  <div key={st.id} style={{ border: '1px solid var(--border)', borderRadius: '8px', padding: '0.75rem', background: '#f8fafc' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
+                      <strong style={{ fontSize: '0.82rem', color: '#0f172a' }}>{st.componente}</strong>
+                      <span className={`badge ${st.existe === 'SI' ? 'badge-info' : st.existe === 'NO' ? 'badge-danger' : 'badge-warning'}`} style={{ fontSize: '0.68rem', whiteSpace: 'nowrap' }}>
+                        {st.existe === 'SI' ? 'EXISTE EN SITIO' : st.existe === 'NO' ? 'NO INSTALADO' : 'POR VERIFICAR'}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: '0.74rem', color: '#475569', marginTop: '0.35rem', lineHeight: 1.4 }}>
+                      {st.observaciones}
+                    </div>
+                    <div style={{ marginTop: '0.5rem', paddingTop: '0.35rem', borderTop: '1px dashed #cbd5e1', fontSize: '0.72rem', color: st.compra_ahora === 'NO' ? '#475569' : '#b91c1c', fontWeight: 600 }}>
+                      Acción: {st.compra_ahora}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Priority Questions Q01-Q08 */}
+            <div>
+              <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#334155', marginBottom: '0.65rem' }}>
+                2. Matriz de Preguntas Prioritarias y Bloqueos de Ingeniería (PREGUNTAS_PRIORITARIAS.csv)
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                {PRIORITY_QUESTIONS.map(q => (
+                  <div 
+                    key={q.id}
+                    style={{ 
+                      border: `1px solid ${q.prioridad === 'ALTA' ? '#fecaca' : '#fed7aa'}`, 
+                      borderRadius: '8px', 
+                      padding: '0.75rem 1rem', 
+                      background: q.prioridad === 'ALTA' ? '#fff5f5' : '#fffbeb',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.85rem'
+                    }}
+                  >
+                    <span className={`badge ${q.prioridad === 'ALTA' ? 'badge-danger' : 'badge-warning'}`} style={{ fontSize: '0.75rem', fontWeight: 800, marginTop: '2px' }}>
+                      {q.id} · {q.prioridad}
+                    </span>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0f172a' }}>
+                        {q.dato_pendiente}
+                      </div>
+                      <div style={{ fontSize: '0.74rem', color: '#475569', marginTop: '0.2rem' }}>
+                        Módulo bloqueado: <strong style={{ color: '#1e3a8a' }}>{q.modulo_que_bloquea}</strong> · Estatus de verificación: <span className="badge badge-secondary" style={{ fontSize: '0.68rem' }}>{q.validada === 'SI' ? 'VALIDADO' : 'PENDIENTE EN OBRA'}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Partial Measurements M01-M11 */}
+            <div>
+              <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#334155', marginBottom: '0.65rem' }}>
+                3. Cotas Parciales Registradas en Croquis (COTAS_PARCIALES.csv)
+              </h4>
+              <div style={{ overflowX: 'auto', border: '1px solid var(--border)', borderRadius: '8px' }}>
+                <table style={{ width: '100%', fontSize: '0.78rem', borderCollapse: 'collapse', textAlign: 'left' }}>
+                  <thead>
+                    <tr style={{ background: '#f1f5f9', borderBottom: '1px solid var(--border)' }}>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>ID</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Valor</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Descripción según Croquis</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Estatus de Validación</th>
+                      <th style={{ padding: '0.5rem 0.75rem' }}>Fuente</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PARTIAL_MEASUREMENTS.map(m => (
+                      <tr key={m.id} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700, color: '#0f172a' }}>{m.id}</td>
+                        <td style={{ padding: '0.45rem 0.75rem', fontWeight: 700, color: '#0284c7' }}>{m.valor} {m.unidad}</td>
+                        <td style={{ padding: '0.45rem 0.75rem', color: '#334155' }}>{m.descripcion}</td>
+                        <td style={{ padding: '0.45rem 0.75rem' }}>
+                          <span className="badge badge-warning" style={{ fontSize: '0.68rem' }}>
+                            {m.estatus}
+                          </span>
+                        </td>
+                        <td style={{ padding: '0.45rem 0.75rem', color: '#64748b', fontSize: '0.72rem' }}>{m.fuente}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        ) : (
+        /* Interactive SVG Canvas */
         <div 
           style={{ 
             flex: 1, 
@@ -421,11 +588,132 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
 
             {/* Transform Group for Pan & Zoom */}
             <g transform={`translate(${pan.x}, ${pan.y})`}>
-              
+
+              {/* ==================================================== */}
+              {/* CAPA 0: ESTRUCTURA VALIDADA (12 ZONAS OFICIALES)     */}
+              {/* ==================================================== */}
+              {(viewMode === 'validated' || (viewMode === 'hybrid' && layers.layer_validated_arch)) && (
+                <g id="capa_estructura_validada">
+                  {VALIDATED_ZONES.map(zone => {
+                    const isSelected = selectedZone?.id === zone.id;
+                    const pts = zone.poligono_px.map(p => `${p[0]},${p[1]}`).join(' ');
+                    const xs = zone.poligono_px.map(p => p[0]);
+                    const ys = zone.poligono_px.map(p => p[1]);
+                    const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+                    const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+
+                    return (
+                      <g 
+                        key={zone.id} 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedZone(zone);
+                          setSelectedRoom(null);
+                          setSelectedElement(null);
+                          setSelectedSurvey(null);
+                        }}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <polygon
+                          points={pts}
+                          fill={isSelected ? '#7dd3fc' : zone.fillColor}
+                          fillOpacity={isSelected ? 0.95 : 0.85}
+                          stroke={isSelected ? '#0284c7' : zone.strokeColor}
+                          strokeWidth={isSelected ? 3.5 : 2.3}
+                        />
+                        <title>{zone.nombre} ({zone.categoria})</title>
+
+                        {/* Special graphics for staircases */}
+                        {zone.categoria === 'escaleras' && (
+                          <g stroke="#475569" strokeWidth="1" strokeDasharray="3,3" pointerEvents="none">
+                            <line x1={Math.min(...xs) + 15} y1={cy - 12} x2={Math.max(...xs) - 15} y2={cy - 12} />
+                            <line x1={Math.min(...xs) + 15} y1={cy} x2={Math.max(...xs) - 15} y2={cy} />
+                            <line x1={Math.min(...xs) + 15} y1={cy + 12} x2={Math.max(...xs) - 15} y2={cy + 12} />
+                          </g>
+                        )}
+
+                        {/* Zone Label */}
+                        <text
+                          x={cx}
+                          y={cy}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          fontSize={zone.categoria === 'circulacion' ? 12 : 14}
+                          fontWeight="700"
+                          fill="#1e293b"
+                          fontFamily="Arial, sans-serif"
+                          pointerEvents="none"
+                        >
+                          {zone.nombre}
+                        </text>
+
+                        {/* Subtext */}
+                        <text
+                          x={cx}
+                          y={cy + 16}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                          fontSize={9}
+                          fontWeight="600"
+                          fill="#64748b"
+                          fontFamily="Arial, sans-serif"
+                          pointerEvents="none"
+                        >
+                          {zone.categoria === 'circulacion' ? 'PASILLO (AZUL)' : 
+                           zone.categoria === 'escaleras' ? 'ESCALERA (MORADO)' :
+                           zone.id === 'bano_secundario' ? 'SUBREGIÓN EN SALA' : 'MEDIDAS PENDIENTES'}
+                        </text>
+                      </g>
+                    );
+                  })}
+
+                  {/* Acceso desde Calle Aproximado (Borde Derecho) */}
+                  <g id="acceso_calle_marcador">
+                    <path
+                      d="M 970,282 L 910,282"
+                      stroke="#ea580c"
+                      strokeWidth="4"
+                      strokeDasharray="8,5"
+                    />
+                    <polygon
+                      points="915,274 895,282 915,290"
+                      fill="#ea580c"
+                    />
+                    <rect
+                      x="900"
+                      y="250"
+                      width="195"
+                      height="58"
+                      rx="6"
+                      fill="#fff7ed"
+                      stroke="#fdba74"
+                      strokeWidth="1.5"
+                    />
+                    <text x="910" y="271" fontSize="12" fontWeight="bold" fill="#c2410c">
+                      CALLE (Entrada Aprox.)
+                    </text>
+                    <text x="910" y="288" fontSize="9" fill="#9a3412">
+                      Lado DERECHO · Pasillo cocina/sala
+                    </text>
+                    <text x="910" y="301" fontSize="8" fontWeight="bold" fill="#ea580c">
+                      (Vano y cota por validar en obra)
+                    </text>
+                  </g>
+
+                  {/* Top scale restriction banner */}
+                  <g transform="translate(100, 30)">
+                    <rect width="680" height="26" rx="5" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" />
+                    <text x="340" y="17" textAnchor="middle" fontSize="11" fontWeight="600" fill="#475569">
+                      TOPOLOGÍA AUTORIZADA DE 12 ZONAS (SIN ESCALA MÉTRICA · PÍXELES ESQUEMÁTICOS)
+                    </text>
+                  </g>
+                </g>
+              )}
+
               {/* ==================================================== */}
               {/* CAPA A: ARQUITECTURA (Habitaciones, Muros, Escalera) */}
               {/* ==================================================== */}
-              {layers.layer_arch && (
+              {layers.layer_arch && viewMode !== 'validated' && (
                 <g id="layer_arquitectura">
                   {displayedRooms.map(room => {
                     const rx = room.x * scale;
@@ -935,12 +1223,98 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
             <span style={{ color: '#64748b', fontSize: '9px' }}>Cuadrícula mayor = 1.0 m | Menor = 0.5 m</span>
           </div>
         </div>
+        )}
 
         {/* Right Inspector & Property Editor Panel */}
         <div style={{ width: '330px', display: 'flex', flexDirection: 'column', gap: '1rem', overflowY: 'auto' }}>
           
-          {/* INSPECTOR 1: Selected Survey Element (A1-A15, C1-C18, P1-P7, V1-V2, Closets) */}
-          {selectedSurvey ? (
+          {/* INSPECTOR 0: Selected Validated Zone */}
+          {selectedZone ? (
+            <div className="card" style={{ marginBottom: 0 }}>
+              <div className="card-header" style={{ paddingBottom: '0.5rem', borderBottom: '1px solid var(--border)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span 
+                    className="badge" 
+                    style={{ 
+                      backgroundColor: selectedZone.fillColor, 
+                      color: '#1e293b', 
+                      border: `1px solid ${selectedZone.strokeColor}`,
+                      fontSize: '0.78rem',
+                      fontWeight: 700 
+                    }}
+                  >
+                    {selectedZone.categoria.toUpperCase()}
+                  </span>
+                  <h4 className="card-title" style={{ fontSize: '0.9rem', margin: 0 }}>
+                    {selectedZone.nombre}
+                  </h4>
+                </div>
+                <button 
+                  className="btn btn-secondary btn-sm" 
+                  onClick={() => setSelectedZone(null)}
+                  style={{ padding: '0.2rem 0.4rem' }}
+                >
+                  <X size={14} />
+                </button>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginTop: '0.75rem', fontSize: '0.82rem' }}>
+                <div style={{ background: '#f8fafc', padding: '0.5rem', borderRadius: '6px', border: '1px solid #e2e8f0' }}>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.72rem' }}>IDENTIFICADOR OFICIAL:</div>
+                  <strong style={{ fontFamily: 'var(--font-mono)', color: '#0f172a' }}>{selectedZone.id}</strong>
+                  <div style={{ marginTop: '0.35rem', color: 'var(--text-muted)', fontSize: '0.72rem' }}>ESTADO GEOMÉTRICO:</div>
+                  <span className="badge badge-warning" style={{ fontSize: '0.72rem' }}>
+                    TOPOLOGÍA VALIDADA (SIN ESCALA)
+                  </span>
+                </div>
+
+                {/* Chromatic Rule Banner */}
+                {selectedZone.categoria === 'circulacion' && (
+                  <div style={{ background: '#eff6ff', padding: '0.5rem', borderRadius: '6px', border: '1px solid #bfdbfe', color: '#1e40af', fontSize: '0.75rem' }}>
+                    <strong>Regla de Color:</strong> AZUL = Pasillo de circulación (Fuente 07). Los textos antiguos que señalan escaleras sobre zonas azules no los convierten en escaleras.
+                  </div>
+                )}
+                {selectedZone.categoria === 'escaleras' && (
+                  <div style={{ background: '#f5f3ff', padding: '0.5rem', borderRadius: '6px', border: '1px solid #ddd6fe', color: '#5b21b6', fontSize: '0.75rem' }}>
+                    <strong>Regla de Color:</strong> MORADO = Escaleras (Fuente 07). Corresponde a uno de los dos núcleos independientes (a azotea o desde PB).
+                  </div>
+                )}
+                {selectedZone.id === 'bano_secundario' && (
+                  <div style={{ background: '#fff1f2', padding: '0.5rem', borderRadius: '6px', border: '1px solid #fecdd3', color: '#9f1239', fontSize: '0.75rem' }}>
+                    <strong>Deduplicación Obligatoria:</strong> Esta zona se dibuja dentro de la sala-comedor. Al cuantificar m², se debe sustraer de la sala para no duplicar superficie.
+                  </div>
+                )}
+
+                {/* Notes */}
+                <div style={{ background: '#ffffff', padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border)' }}>
+                  <div style={{ fontWeight: 700, color: '#334155', fontSize: '0.75rem', marginBottom: '0.2rem' }}>
+                    Notas Arquitectónicas:
+                  </div>
+                  <p style={{ margin: 0, fontSize: '0.75rem', color: '#475569', lineHeight: 1.4 }}>
+                    {selectedZone.notas}
+                  </p>
+                </div>
+
+                {/* Missing measurements alert */}
+                <div style={{ background: '#fffbeb', padding: '0.5rem', borderRadius: '6px', border: '1px solid #fde68a' }}>
+                  <div style={{ fontWeight: 700, color: '#92400e', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <AlertTriangle size={13} color="#b45309" /> Medición Física Pendiente:
+                  </div>
+                  <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.73rem', color: '#78350f', lineHeight: 1.4 }}>
+                    Falta verificar en sitio: ancho real, largo real y altura de losa con flexómetro para calibrar escala.
+                  </p>
+                </div>
+
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onClick={() => setShowRefModal(true)}
+                  style={{ fontSize: '0.75rem', marginTop: '0.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}
+                >
+                  <FileSearch size={14} color="#0284c7" /> Ver Croquis Oficial (Fuente 01)
+                </button>
+              </div>
+            </div>
+          ) : selectedSurvey ? (
             <div className="card" style={{ marginBottom: 0 }}>
               <div className="card-header" style={{ paddingBottom: '0.5rem', borderBottom: '1px solid var(--border)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -1331,6 +1705,93 @@ export const ModuleFloorPlan: React.FC<ModuleFloorPlanProps> = ({
               <button className="btn btn-primary btn-sm" onClick={() => setActivePhotoModal(null)}>
                 Cerrar Visor
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reference Photo Modal (Source 01 & Source 07) */}
+      {showRefModal && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(15, 23, 42, 0.85)',
+            backdropFilter: 'blur(5px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            padding: '1.5rem'
+          }}
+          onClick={() => setShowRefModal(false)}
+        >
+          <div 
+            style={{
+              background: '#ffffff',
+              borderRadius: '14px',
+              maxWidth: '900px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              padding: '1.5rem',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+              position: 'relative'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border)', paddingBottom: '0.75rem', marginBottom: '1rem' }}>
+              <div>
+                <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: '#0f172a' }}>
+                  Fuente 01 Oficial: Estructura Validada por el Usuario
+                </h3>
+                <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  Jerarquía autoritativa de organización espacial relativa (Ciudad de México)
+                </p>
+              </div>
+              <button className="btn btn-secondary btn-sm" onClick={() => setShowRefModal(false)}>
+                <X size={16} />
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+                <img 
+                  src="/references/01_ESTRUCTURA_VALIDADA_POR_USUARIO.png" 
+                  alt="Estructura Validada por Usuario"
+                  style={{ width: '100%', display: 'block' }}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.75rem' }}>
+                <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+                  <img 
+                    src="/references/07_ACLARACION_AZUL_PASILLO_MORADO_ESCALERAS.png" 
+                    alt="Aclaración Azul Pasillo Morado Escaleras"
+                    style={{ width: '100%', display: 'block' }}
+                  />
+                </div>
+                <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden' }}>
+                  <img 
+                    src="/references/02_CROQUIS_CON_MEDIDAS.jpg" 
+                    alt="Croquis con Medidas"
+                    style={{ width: '100%', display: 'block' }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.8rem', color: '#334155' }}>
+                <strong>Reglas Vinculantes de Interpretación:</strong>
+                <ul style={{ margin: '0.35rem 0 0 1.2rem', padding: 0, lineHeight: 1.5 }}>
+                  <li><strong>AZUL:</strong> Pasillos de circulación (Fuente 07).</li>
+                  <li><strong>MORADO:</strong> Escaleras independientes (a azotea y desde PB).</li>
+                  <li><strong>Acceso a calle:</strong> Costado DERECHO, altura pasillo cocina/sala.</li>
+                  <li><strong>Sin escala métrica confirmada:</strong> Las coordenadas son píxeles esquemáticos.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -192,3 +192,54 @@ export interface ProjectData {
   reusableWires: ReusableWire[];
   surveyElements?: SurveyElement[];
 }
+
+export interface ValidatedZone {
+  id: string;
+  nombre: string;
+  categoria: 'recamara' | 'circulacion' | 'escaleras' | 'area_social' | 'bano' | 'cocina';
+  poligono_px: [number, number][];
+  fillColor: string;
+  strokeColor: string;
+  geometria: string;
+  notas?: string;
+}
+
+export interface StreetAccessMarker {
+  lado: 'derecho';
+  referencia: string;
+  ancla_px: { x: number; y: number };
+  franja_y_px: { y_min: number; y_max: number };
+  cercania_zona_id: string;
+  confianza: string;
+  requiere_verificar: string[];
+}
+
+export interface PartialMeasurement {
+  id: string;
+  valor: number;
+  unidad: string;
+  descripcion: string;
+  estatus: string;
+  fuente: string;
+  confirmacion_usuario: 'CONFIRMADO' | 'PENDIENTE' | 'CONFLICTO_POR_VERIFICAR';
+  zona_relacionada?: string;
+}
+
+export interface InstallationRealStatus {
+  id: string;
+  componente: string;
+  existe: 'SI' | 'NO' | 'DESCONOCIDO';
+  estado: string;
+  observaciones: string;
+  compra_ahora: string;
+}
+
+export interface PriorityQuestion {
+  id: string;
+  prioridad: 'ALTA' | 'MEDIA' | 'BAJA';
+  dato_pendiente: string;
+  modulo_que_bloquea: string;
+  respuesta: string;
+  fecha_respuesta: string;
+  validada: 'SI' | 'NO';
+}
